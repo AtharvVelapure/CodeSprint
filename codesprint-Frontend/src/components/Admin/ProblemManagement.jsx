@@ -10,10 +10,8 @@ function ProblemManagement() {
     const [activeTab, setActiveTab] = useState("all");
     const [problems, setProblems] = useState([]);
     const [categories, setCategories] = useState([]);
-
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
-
     const [editingId, setEditingId] = useState(null);
 
     const [formData, setFormData] = useState({
@@ -52,9 +50,7 @@ function ProblemManagement() {
                     ? response.data
                     : []
             );
-
         } catch (error) {
-
             console.error(
                 "Error loading problems:",
                 error
@@ -83,9 +79,7 @@ function ProblemManagement() {
                     ? response.data
                     : []
             );
-
         } catch (error) {
-
             console.error(
                 "Error loading categories:",
                 error
@@ -114,9 +108,7 @@ function ProblemManagement() {
         e.preventDefault();
 
         try {
-
             if (editingId) {
-
                 const response = await axios.put(
                     `${API_URL}/${editingId}`,
                     formData
@@ -133,12 +125,13 @@ function ProblemManagement() {
                 alert(
                     "Problem updated successfully"
                 );
-
             } else {
-
                 const response = await axios.post(
                     API_URL,
-                    formData
+                    {
+                        ...formData,
+                        active: true
+                    }
                 );
 
                 setProblems((currentProblems) => [
@@ -152,14 +145,12 @@ function ProblemManagement() {
             }
 
             resetForm();
-
             setActiveTab("all");
 
             await fetchProblems();
             await fetchCategories();
 
         } catch (error) {
-
             console.error(
                 "Error saving problem:",
                 error
@@ -173,152 +164,156 @@ function ProblemManagement() {
             alert(message);
         }
     };
-// ============================================================
-// DELETE PROBLEM
-// ============================================================
 
-const handleDelete = async (id) => {
+    // ============================================================
+    // DELETE PROBLEM
+    // ============================================================
 
-    const problem = problems.find(
-        (item) => item.id === id
-    );
-
-    const problemTitle =
-        problem?.title || "this problem";
-
-    const confirmDelete = window.confirm(
-        `Are you sure you want to permanently delete "${problemTitle}"?`
-    );
-
-    if (!confirmDelete) {
-        return;
-    }
-
-    try {
-
-        /*
-         * Treat 409 as a normal business response.
-         *
-         * 409 is expected when the problem is being used
-         * by an assessment, contest, certification, or
-         * has submission history.
-         */
-        const response = await axios.delete(
-            `${API_URL}/${id}`,
-            {
-                validateStatus: (status) =>
-                    (status >= 200 && status < 300) ||
-                    status === 409
-            }
+    const handleDelete = async (id) => {
+        const problem = problems.find(
+            (item) => item.id === id
         );
 
-        // ========================================================
-        // SUCCESSFUL PERMANENT DELETE
-        // ========================================================
+        const problemTitle =
+            problem?.title || "this problem";
 
-        if (response.status >= 200 && response.status < 300) {
+        const confirmDelete = window.confirm(
+            `Are you sure you want to permanently delete "${problemTitle}"?`
+        );
 
-            setProblems((currentProblems) =>
-                currentProblems.filter(
-                    (problem) => problem.id !== id
-                )
-            );
-
-            await fetchCategories();
-
-            alert(
-                "Problem deleted successfully"
-            );
-
+        if (!confirmDelete) {
             return;
         }
 
+        try {
+            /*
+             * The backend now returns HTTP 200 for both:
+             *
+             * 1. Successful permanent deletion
+             * 2. A protected problem that must be deactivated
+             *
+             * This prevents an expected business condition from
+             * appearing as a 409 Conflict in the browser console.
+             */
 
-        // ========================================================
-        // 409 CONFLICT
-        // ========================================================
+            const response = await axios.delete(
+                `${API_URL}/${id}`
+            );
 
-        if (response.status === 409) {
+            const result = response.data;
 
-            const backendMessage =
-                response.data?.message ||
-                response.data ||
-                "This problem cannot be permanently deleted because it is currently being used.";
+            // ========================================================
+            // SUCCESSFUL PERMANENT DELETE
+            // ========================================================
 
-            const shouldDeactivate =
-                window.confirm(
-                    `${backendMessage}\n\n` +
-                    `Would you like to deactivate "${problemTitle}" instead?`
+            if (result?.deleted === true) {
+                setProblems((currentProblems) =>
+                    currentProblems.filter(
+                        (problem) => problem.id !== id
+                    )
                 );
 
-            if (!shouldDeactivate) {
+                await fetchCategories();
+
+                alert(
+                    result.message ||
+                    "Problem deleted successfully"
+                );
+
                 return;
             }
 
+            // ========================================================
+            // PROBLEM CANNOT BE PERMANENTLY DELETED
+            // ========================================================
 
-            // ====================================================
-            // DEACTIVATE INSTEAD
-            // ====================================================
-
-            try {
-
-                const deactivateResponse =
-                    await axios.put(
-                        `${API_URL}/${id}/deactivate`
+            if (
+                result?.deleted === false &&
+                result?.requiresDeactivation === true
+            ) {
+                const shouldDeactivate =
+                    window.confirm(
+                        `${result.message}\n\n` +
+                        `Would you like to deactivate "${problemTitle}" instead?`
                     );
 
-                await fetchProblems();
+                if (!shouldDeactivate) {
+                    return;
+                }
 
-                alert(
-                    deactivateResponse.data ||
-                    "Problem deactivated successfully"
-                );
+                // ====================================================
+                // DEACTIVATE INSTEAD
+                // ====================================================
 
-            } catch (deactivateError) {
+                try {
+                    const deactivateResponse =
+                        await axios.put(
+                            `${API_URL}/${id}/deactivate`
+                        );
 
-                console.error(
-                    "Error deactivating problem:",
-                    deactivateError
-                );
+                    await fetchProblems();
 
-                const deactivateMessage =
-                    deactivateError.response?.data?.message ||
-                    deactivateError.response?.data ||
-                    "Failed to deactivate problem";
+                    alert(
+                        deactivateResponse.data ||
+                        "Problem deactivated successfully"
+                    );
 
-                alert(
-                    deactivateMessage
-                );
+                } catch (deactivateError) {
+                    console.error(
+                        "Error deactivating problem:",
+                        deactivateError
+                    );
+
+                    const deactivateMessage =
+                        deactivateError.response?.data?.message ||
+                        deactivateError.response?.data ||
+                        "Failed to deactivate problem";
+
+                    alert(
+                        deactivateMessage
+                    );
+                }
+
+                return;
             }
+
+            // ========================================================
+            // UNEXPECTED BACKEND RESPONSE
+            // ========================================================
+
+            alert(
+                result?.message ||
+                "Unable to process the delete request."
+            );
+
+        } catch (error) {
+            /*
+             * Only genuine HTTP/network errors reach this block.
+             *
+             * A protected problem no longer produces a 409 response,
+             * so the expected deactivate flow does not appear as an
+             * error in the browser console.
+             */
+
+            console.error(
+                "Unexpected error deleting problem:",
+                error
+            );
+
+            const message =
+                error.response?.data?.message ||
+                error.response?.data ||
+                "Failed to delete problem";
+
+            alert(message);
         }
-
-    } catch (error) {
-
-        /*
-         * Only unexpected errors reach here.
-         * A 409 is already handled above as a normal business response.
-         */
-
-        console.error(
-            "Unexpected error deleting problem:",
-            error
-        );
-
-        const message =
-            error.response?.data?.message ||
-            error.response?.data ||
-            "Failed to delete problem";
-
-        alert(message);
-    }
-};
+    };
 
     // ============================================================
     // DEACTIVATE PROBLEM
     // ============================================================
 
     const handleDeactivate = async (id) => {
-
         const problem = problems.find(
             (item) => item.id === id
         );
@@ -336,7 +331,6 @@ const handleDelete = async (id) => {
         }
 
         try {
-
             const response = await axios.put(
                 `${API_URL}/${id}/deactivate`
             );
@@ -349,7 +343,6 @@ const handleDelete = async (id) => {
             );
 
         } catch (error) {
-
             console.error(
                 "Error deactivating problem:",
                 error
@@ -369,7 +362,6 @@ const handleDelete = async (id) => {
     // ============================================================
 
     const handleActivate = async (id) => {
-
         const problem = problems.find(
             (item) => item.id === id
         );
@@ -388,7 +380,6 @@ const handleDelete = async (id) => {
         }
 
         try {
-
             const response = await axios.put(
                 `${API_URL}/${id}/activate`
             );
@@ -401,7 +392,6 @@ const handleDelete = async (id) => {
             );
 
         } catch (error) {
-
             console.error(
                 "Error activating problem:",
                 error
@@ -421,7 +411,6 @@ const handleDelete = async (id) => {
     // ============================================================
 
     const handleEdit = (problem) => {
-
         setEditingId(problem.id);
 
         setFormData({
@@ -442,7 +431,6 @@ const handleDelete = async (id) => {
     // ============================================================
 
     const resetForm = () => {
-
         setEditingId(null);
 
         setFormData({
@@ -461,7 +449,6 @@ const handleDelete = async (id) => {
     // ============================================================
 
     const handleCategoryClick = (category) => {
-
         setSelectedCategory(category);
         setSelectedDifficulty(null);
     };
@@ -471,7 +458,6 @@ const handleDelete = async (id) => {
     // ============================================================
 
     const handleDifficultyClick = (difficulty) => {
-
         setSelectedDifficulty(difficulty);
         setSelectedCategory(null);
     };
@@ -481,9 +467,7 @@ const handleDelete = async (id) => {
     // ============================================================
 
     const getDisplayedProblems = () => {
-
         if (selectedCategory) {
-
             return problems.filter(
                 (problem) =>
                     problem.category?.toLowerCase() ===
@@ -492,7 +476,6 @@ const handleDelete = async (id) => {
         }
 
         if (selectedDifficulty) {
-
             return problems.filter(
                 (problem) =>
                     problem.difficulty?.toLowerCase() ===
@@ -511,7 +494,6 @@ const handleDelete = async (id) => {
     // ============================================================
 
     const getTableTitle = () => {
-
         if (selectedCategory) {
             return `${selectedCategory} Problems`;
         }
@@ -535,7 +517,6 @@ const handleDelete = async (id) => {
             {/* ================================================== */}
 
             <div className="page-title">
-
                 <h1>
                     Problem Management
                 </h1>
@@ -543,16 +524,13 @@ const handleDelete = async (id) => {
                 <p>
                     Manage coding problems, categories and difficulty levels.
                 </p>
-
             </div>
-
 
             {/* ================================================== */}
             {/* MAIN TABS */}
             {/* ================================================== */}
 
             <div className="management-tabs">
-
                 <button
                     type="button"
                     className={
@@ -561,16 +539,13 @@ const handleDelete = async (id) => {
                             : "tab"
                     }
                     onClick={() => {
-
                         setActiveTab("all");
                         setSelectedCategory(null);
                         setSelectedDifficulty(null);
-
                     }}
                 >
                     All Problems
                 </button>
-
 
                 <button
                     type="button"
@@ -580,20 +555,17 @@ const handleDelete = async (id) => {
                             : "tab"
                     }
                     onClick={() => {
-
                         setActiveTab("add");
 
                         if (!editingId) {
                             resetForm();
                         }
-
                     }}
                 >
                     {editingId
                         ? "Edit Problem"
                         : "Add Problem"}
                 </button>
-
 
                 <button
                     type="button"
@@ -603,18 +575,14 @@ const handleDelete = async (id) => {
                             : "tab"
                     }
                     onClick={() => {
-
                         setActiveTab("categories");
                         setSelectedCategory(null);
                         setSelectedDifficulty(null);
-
                         fetchCategories();
-
                     }}
                 >
                     Categories
                 </button>
-
 
                 <button
                     type="button"
@@ -624,62 +592,46 @@ const handleDelete = async (id) => {
                             : "tab"
                     }
                     onClick={() => {
-
                         setActiveTab("difficulty");
                         setSelectedCategory(null);
                         setSelectedDifficulty(null);
-
                     }}
                 >
                     Difficulty Levels
                 </button>
-
             </div>
-
 
             {/* ================================================== */}
             {/* ALL PROBLEMS */}
             {/* ================================================== */}
 
             {activeTab === "all" && (
-
                 <div className="management-card">
-
                     <div className="table-header">
-
                         <div>
-
                             <h2>
                                 {getTableTitle()}
                             </h2>
 
                             <p className="table-subtitle">
-
                                 {displayedProblems.length} problem
                                 {displayedProblems.length !== 1
                                     ? "s"
                                     : ""}
-
                             </p>
-
                         </div>
-
 
                         <button
                             type="button"
                             className="add-button"
                             onClick={() => {
-
                                 resetForm();
                                 setActiveTab("add");
-
                             }}
                         >
                             + Add Problem
                         </button>
-
                     </div>
-
 
                     <ProblemTable
                         problems={displayedProblems}
@@ -688,22 +640,16 @@ const handleDelete = async (id) => {
                         onDeactivate={handleDeactivate}
                         onActivate={handleActivate}
                     />
-
                 </div>
-
             )}
-
 
             {/* ================================================== */}
             {/* ADD / EDIT PROBLEM */}
             {/* ================================================== */}
 
             {activeTab === "add" && (
-
                 <div className="management-card">
-
                     <div className="form-header">
-
                         <h2>
                             {editingId
                                 ? "Edit Problem"
@@ -715,19 +661,14 @@ const handleDelete = async (id) => {
                                 ? "Update the coding problem details."
                                 : "Create a new coding problem."}
                         </p>
-
                     </div>
-
 
                     <form
                         className="problem-form"
                         onSubmit={handleSubmit}
                     >
-
                         <div className="form-row">
-
                             <div className="form-group">
-
                                 <label>
                                     Problem Title
                                 </label>
@@ -740,12 +681,9 @@ const handleDelete = async (id) => {
                                     placeholder="Enter problem title"
                                     required
                                 />
-
                             </div>
 
-
                             <div className="form-group">
-
                                 <label>
                                     Category
                                 </label>
@@ -758,12 +696,9 @@ const handleDelete = async (id) => {
                                     placeholder="Enter category"
                                     required
                                 />
-
                             </div>
 
-
                             <div className="form-group">
-
                                 <label>
                                     Difficulty
                                 </label>
@@ -774,29 +709,21 @@ const handleDelete = async (id) => {
                                     onChange={handleChange}
                                     required
                                 >
-
                                     {difficulties.map(
                                         (difficulty) => (
-
                                             <option
                                                 key={difficulty}
                                                 value={difficulty}
                                             >
                                                 {difficulty}
                                             </option>
-
                                         )
                                     )}
-
                                 </select>
-
                             </div>
-
                         </div>
 
-
                         <div className="form-group">
-
                             <label>
                                 Description
                             </label>
@@ -808,12 +735,9 @@ const handleDelete = async (id) => {
                                 placeholder="Describe the problem"
                                 required
                             />
-
                         </div>
 
-
                         <div className="form-group">
-
                             <label>
                                 Input Format
                             </label>
@@ -824,12 +748,9 @@ const handleDelete = async (id) => {
                                 onChange={handleChange}
                                 placeholder="Describe the input format"
                             />
-
                         </div>
 
-
                         <div className="form-group">
-
                             <label>
                                 Output Format
                             </label>
@@ -840,12 +761,9 @@ const handleDelete = async (id) => {
                                 onChange={handleChange}
                                 placeholder="Describe the output format"
                             />
-
                         </div>
 
-
                         <div className="form-group">
-
                             <label>
                                 Constraints
                             </label>
@@ -856,25 +774,19 @@ const handleDelete = async (id) => {
                                 onChange={handleChange}
                                 placeholder="Enter problem constraints"
                             />
-
                         </div>
 
-
                         <div className="form-actions">
-
                             <button
                                 type="button"
                                 className="cancel-button"
                                 onClick={() => {
-
                                     resetForm();
                                     setActiveTab("all");
-
                                 }}
                             >
                                 Cancel
                             </button>
-
 
                             <button
                                 type="submit"
@@ -884,26 +796,18 @@ const handleDelete = async (id) => {
                                     ? "Update Problem"
                                     : "Save Problem"}
                             </button>
-
                         </div>
-
                     </form>
-
                 </div>
-
             )}
-
 
             {/* ================================================== */}
             {/* CATEGORIES */}
             {/* ================================================== */}
 
             {activeTab === "categories" && (
-
                 <div className="management-card">
-
                     <div className="category-section">
-
                         <h2>
                             Categories
                         </h2>
@@ -912,11 +816,8 @@ const handleDelete = async (id) => {
                             Select a category to view its problems.
                         </p>
 
-
                         <div className="category-list">
-
                             {categories.length === 0 ? (
-
                                 <p
                                     style={{
                                         color: "#64748b"
@@ -924,12 +825,9 @@ const handleDelete = async (id) => {
                                 >
                                     No categories found.
                                 </p>
-
                             ) : (
-
                                 categories.map(
                                     (category) => (
-
                                         <button
                                             key={category}
                                             type="button"
@@ -946,40 +844,27 @@ const handleDelete = async (id) => {
                                         >
                                             {category}
                                         </button>
-
                                     )
                                 )
-
                             )}
-
                         </div>
 
-
                         {selectedCategory && (
-
                             <div className="category-results">
-
                                 <div className="table-header">
-
                                     <div>
-
                                         <h2>
                                             {selectedCategory} Problems
                                         </h2>
 
                                         <p className="table-subtitle">
-
                                             {displayedProblems.length} problem
                                             {displayedProblems.length !== 1
                                                 ? "s"
                                                 : ""} found
-
                                         </p>
-
                                     </div>
-
                                 </div>
-
 
                                 <ProblemTable
                                     problems={displayedProblems}
@@ -988,28 +873,19 @@ const handleDelete = async (id) => {
                                     onDeactivate={handleDeactivate}
                                     onActivate={handleActivate}
                                 />
-
                             </div>
-
                         )}
-
                     </div>
-
                 </div>
-
             )}
-
 
             {/* ================================================== */}
             {/* DIFFICULTY LEVELS */}
             {/* ================================================== */}
 
             {activeTab === "difficulty" && (
-
                 <div className="management-card">
-
                     <div className="category-section">
-
                         <h2>
                             Difficulty Levels
                         </h2>
@@ -1018,12 +894,9 @@ const handleDelete = async (id) => {
                             Select a difficulty to view its problems.
                         </p>
 
-
                         <div className="difficulty-list">
-
                             {difficulties.map(
                                 (difficulty) => (
-
                                     <button
                                         key={difficulty}
                                         type="button"
@@ -1040,38 +913,26 @@ const handleDelete = async (id) => {
                                     >
                                         {difficulty}
                                     </button>
-
                                 )
                             )}
-
                         </div>
 
-
                         {selectedDifficulty && (
-
                             <div className="category-results">
-
                                 <div className="table-header">
-
                                     <div>
-
                                         <h2>
                                             {selectedDifficulty} Problems
                                         </h2>
 
                                         <p className="table-subtitle">
-
                                             {displayedProblems.length} problem
                                             {displayedProblems.length !== 1
                                                 ? "s"
                                                 : ""} found
-
                                         </p>
-
                                     </div>
-
                                 </div>
-
 
                                 <ProblemTable
                                     problems={displayedProblems}
@@ -1080,21 +941,14 @@ const handleDelete = async (id) => {
                                     onDeactivate={handleDeactivate}
                                     onActivate={handleActivate}
                                 />
-
                             </div>
-
                         )}
-
                     </div>
-
                 </div>
-
             )}
-
         </div>
     );
 }
-
 
 // ================================================================
 // PROBLEM TABLE
@@ -1107,9 +961,7 @@ function ProblemTable({
     onDeactivate,
     onActivate
 }) {
-
     if (problems.length === 0) {
-
         return (
             <div
                 style={{
@@ -1125,15 +977,10 @@ function ProblemTable({
     }
 
     return (
-
         <div className="table-wrapper">
-
             <table>
-
                 <thead>
-
                     <tr>
-
                         <th>
                             Title
                         </th>
@@ -1153,17 +1000,12 @@ function ProblemTable({
                         <th>
                             Action
                         </th>
-
                     </tr>
-
                 </thead>
 
-
                 <tbody>
-
                     {problems.map(
                         (problem) => (
-
                             <tr
                                 key={problem.id}
                                 className={
@@ -1172,17 +1014,13 @@ function ProblemTable({
                                         : ""
                                 }
                             >
-
                                 {/* TITLE */}
 
                                 <td>
-
                                     <strong>
                                         {problem.title}
                                     </strong>
-
                                 </td>
-
 
                                 {/* CATEGORY */}
 
@@ -1190,11 +1028,9 @@ function ProblemTable({
                                     {problem.category}
                                 </td>
 
-
                                 {/* DIFFICULTY */}
 
                                 <td>
-
                                     <span
                                         className={
                                             `difficulty ${problem.difficulty?.toLowerCase()}`
@@ -1202,35 +1038,25 @@ function ProblemTable({
                                     >
                                         {problem.difficulty}
                                     </span>
-
                                 </td>
-
 
                                 {/* STATUS */}
 
                                 <td>
-
                                     {problem.active === false ? (
-
                                         <span className="problem-status inactive">
                                             Inactive
                                         </span>
-
                                     ) : (
-
                                         <span className="problem-status active">
                                             Active
                                         </span>
-
                                     )}
-
                                 </td>
-
 
                                 {/* ACTIONS */}
 
                                 <td>
-
                                     <button
                                         type="button"
                                         className="edit-button"
@@ -1241,9 +1067,7 @@ function ProblemTable({
                                         Edit
                                     </button>
 
-
                                     {problem.active === false ? (
-
                                         <button
                                             type="button"
                                             className="activate-button"
@@ -1255,9 +1079,7 @@ function ProblemTable({
                                         >
                                             Activate
                                         </button>
-
                                     ) : (
-
                                         <button
                                             type="button"
                                             className="deactivate-button"
@@ -1269,9 +1091,7 @@ function ProblemTable({
                                         >
                                             Deactivate
                                         </button>
-
                                     )}
-
 
                                     <button
                                         type="button"
@@ -1284,18 +1104,12 @@ function ProblemTable({
                                     >
                                         Delete
                                     </button>
-
                                 </td>
-
                             </tr>
-
                         )
                     )}
-
                 </tbody>
-
             </table>
-
         </div>
     );
 }

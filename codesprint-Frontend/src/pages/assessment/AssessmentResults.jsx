@@ -10,12 +10,9 @@ function AssessmentResults() {
 
     const [results, setResults] = useState([]);
     const [selectedResult, setSelectedResult] = useState(null);
-
     const [loading, setLoading] = useState(true);
     const [detailLoading, setDetailLoading] = useState(false);
-
     const [error, setError] = useState("");
-
     const [searchTerm, setSearchTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState("ALL");
 
@@ -48,13 +45,18 @@ function AssessmentResults() {
                 throw new Error(
                     typeof data === "string"
                         ? data
-                        : data?.message || "Failed to load assessment results."
+                        : data?.message ||
+                          "Failed to load assessment results."
                 );
             }
 
             setResults(Array.isArray(data) ? data : []);
         } catch (err) {
-            console.error("Error loading assessment results:", err);
+            console.error(
+                "Error loading assessment results:",
+                err
+            );
+
             setError(err.message);
         } finally {
             setLoading(false);
@@ -76,7 +78,8 @@ function AssessmentResults() {
                 throw new Error(
                     typeof data === "string"
                         ? data
-                        : data?.message || "Failed to load candidate result."
+                        : data?.message ||
+                          "Failed to load candidate result."
                 );
             }
 
@@ -214,7 +217,9 @@ function AssessmentResults() {
             0
         );
 
-        return (total / submitted.length).toFixed(1);
+        return (
+            total / submitted.length
+        ).toFixed(1);
     }, [results]);
 
     const totalQuestions =
@@ -266,6 +271,7 @@ function AssessmentResults() {
                         </div>
 
                         <div>
+
                             <h1>
                                 Assessment Results
                             </h1>
@@ -274,6 +280,7 @@ function AssessmentResults() {
                                 Review candidate performance
                                 and individual submissions.
                             </p>
+
                         </div>
 
                     </div>
@@ -302,6 +309,7 @@ function AssessmentResults() {
                     </span>
 
                     <div>
+
                         <strong>
                             Unable to load results
                         </strong>
@@ -309,6 +317,7 @@ function AssessmentResults() {
                         <p>
                             {error}
                         </p>
+
                     </div>
 
                 </div>
@@ -512,6 +521,7 @@ function AssessmentResults() {
                             )
                         }
                     >
+
                         <option value="ALL">
                             All Status
                         </option>
@@ -531,6 +541,7 @@ function AssessmentResults() {
                         <option value="INVITED">
                             Invited
                         </option>
+
                     </select>
 
                 </div>
@@ -645,9 +656,7 @@ function AssessmentResults() {
                                                     <div className="candidate-avatar">
 
                                                         {result.candidateName
-                                                            ?.charAt(
-                                                                0
-                                                            )
+                                                            ?.charAt(0)
                                                             ?.toUpperCase() ||
                                                             "C"}
 
@@ -819,9 +828,12 @@ function AssessmentResults() {
                             <div className="detail-candidate-heading">
 
                                 <div className="detail-candidate-avatar">
+
                                     {selectedResult.candidateName
                                         ?.charAt(0)
-                                        ?.toUpperCase() || "C"}
+                                        ?.toUpperCase() ||
+                                        "C"}
+
                                 </div>
 
                                 <div>
@@ -940,6 +952,7 @@ function AssessmentResults() {
                                 </span>
 
                                 <div>
+
                                     <h3>
                                         Assessment Information
                                     </h3>
@@ -948,6 +961,7 @@ function AssessmentResults() {
                                         Basic assessment and
                                         candidate timeline.
                                     </p>
+
                                 </div>
 
                             </div>
@@ -1119,7 +1133,7 @@ function AssessmentResults() {
                                     <strong>
                                         {
                                             selectedResult.cameraRequired
-                                                ? "Enabled"
+                                                ? "Required"
                                                 : "Not Required"
                                         }
                                     </strong>
@@ -1145,7 +1159,7 @@ function AssessmentResults() {
                                     <strong>
                                         {
                                             selectedResult.microphoneRequired
-                                                ? "Enabled"
+                                                ? "Required"
                                                 : "Not Required"
                                         }
                                     </strong>
@@ -1171,7 +1185,7 @@ function AssessmentResults() {
                                     <strong>
                                         {
                                             selectedResult.fullscreenRequired
-                                                ? "Enabled"
+                                                ? "Required"
                                                 : "Not Required"
                                         }
                                     </strong>
@@ -1206,11 +1220,13 @@ function AssessmentResults() {
                             </div>
 
                             <span className="question-total-badge">
+
                                 {
                                     selectedResult.questions?.length ||
                                     0
                                 }{" "}
                                 Questions
+
                             </span>
 
                         </div>
@@ -1234,10 +1250,13 @@ function AssessmentResults() {
                                                 <div className="question-title-area">
 
                                                     <span className="question-number">
+
                                                         Question{" "}
+
                                                         {
                                                             question.questionOrder
                                                         }
+
                                                     </span>
 
                                                     <h4>
@@ -1343,11 +1362,13 @@ function AssessmentResults() {
                                                     </div>
 
                                                     <pre>
+
                                                         <code>
                                                             {
                                                                 question.code
                                                             }
                                                         </code>
+
                                                     </pre>
 
                                                 </div>
@@ -1386,6 +1407,7 @@ function AssessmentResults() {
                     </div>
 
                 </div>
+
             )}
 
             {/* =====================================================

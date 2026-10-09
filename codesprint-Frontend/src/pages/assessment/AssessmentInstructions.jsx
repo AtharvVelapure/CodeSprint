@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
     useLocation,
     useNavigate,
@@ -15,9 +16,16 @@ const AssessmentInstructions = () => {
     const location = useLocation();
     const { invitationToken } = useParams();
 
-    const [assessment, setAssessment] = useState(
-        location.state?.assessment || null
-    );
+    /*
+     * IMPORTANT:
+     * Do not trust the assessment object passed through
+     * React Router state as the final source of truth.
+     *
+     * The backend database contains the latest assessment
+     * security configuration, so this page always loads it
+     * from the backend.
+     */
+    const [assessment, setAssessment] = useState(null);
 
     const [candidateName, setCandidateName] = useState(
         location.state?.candidateName || ""
@@ -27,9 +35,7 @@ const AssessmentInstructions = () => {
         location.state?.candidateEmail || ""
     );
 
-    const [loading, setLoading] = useState(
-        !assessment
-    );
+    const [loading, setLoading] = useState(true);
 
     const [starting, setStarting] = useState(false);
 
@@ -233,16 +239,25 @@ const AssessmentInstructions = () => {
     };
 
     // =====================================================
-    // LOAD ASSESSMENT IF PAGE IS REFRESHED
+    // LOAD LATEST ASSESSMENT
     // =====================================================
 
     useEffect(() => {
 
-        if (assessment) {
-            return;
-        }
-
         const loadAssessment = async () => {
+
+            if (!invitationToken) {
+
+                setErrorType("INVALID");
+
+                setErrorMessage(
+                    "Assessment invitation link is invalid."
+                );
+
+                setLoading(false);
+
+                return;
+            }
 
             try {
 
@@ -284,26 +299,136 @@ const AssessmentInstructions = () => {
                     );
                 }
 
-                setAssessment(data);
+                /*
+                 * Support both response formats:
+                 *
+                 * 1. Direct:
+                 * {
+                 *   cameraRequired: true,
+                 *   microphoneRequired: true,
+                 *   fullscreenRequired: true
+                 * }
+                 *
+                 * 2. Wrapped:
+                 * {
+                 *   assessment: {
+                 *      cameraRequired: true,
+                 *      ...
+                 *   }
+                 * }
+                 */
 
-                if (data.candidateName) {
+                const latestAssessment =
+                    data?.assessment || data;
+
+                if (
+                    !latestAssessment ||
+                    typeof latestAssessment !== "object"
+                ) {
+
+                    throw new Error(
+                        "Invalid assessment response received."
+                    );
+                }
+
+                /*
+                 * Normalize boolean values.
+                 *
+                 * Normally Spring Boot returns true/false.
+                 * This also safely handles 1/"1"/"true"
+                 * if the response ever changes.
+                 */
+                const normalizedAssessment = {
+                    ...latestAssessment,
+
+                    cameraRequired:
+                        latestAssessment.cameraRequired === true ||
+                        latestAssessment.cameraRequired === 1 ||
+                        latestAssessment.cameraRequired === "1" ||
+                        latestAssessment.cameraRequired === "true",
+
+                    microphoneRequired:
+                        latestAssessment.microphoneRequired === true ||
+                        latestAssessment.microphoneRequired === 1 ||
+                        latestAssessment.microphoneRequired === "1" ||
+                        latestAssessment.microphoneRequired === "true",
+
+                    fullscreenRequired:
+                        latestAssessment.fullscreenRequired === true ||
+                        latestAssessment.fullscreenRequired === 1 ||
+                        latestAssessment.fullscreenRequired === "1" ||
+                        latestAssessment.fullscreenRequired === "true"
+                };
+
+                setAssessment(
+                    normalizedAssessment
+                );
+
+                /*
+                 * Candidate information can come from the
+                 * direct response or from the wrapped response.
+                 */
+                if (data?.candidateName) {
 
                     setCandidateName(
                         data.candidateName
                     );
+
+                } else if (
+                    latestAssessment?.candidateName
+                ) {
+
+                    setCandidateName(
+                        latestAssessment.candidateName
+                    );
                 }
 
-                if (data.candidateEmail) {
+                if (data?.candidateEmail) {
 
                     setCandidateEmail(
                         data.candidateEmail
                     );
+
+                } else if (
+                    latestAssessment?.candidateEmail
+                ) {
+
+                    setCandidateEmail(
+                        latestAssessment.candidateEmail
+                    );
                 }
+
+                /*
+                 * Development/debug information.
+                 *
+                 * This confirms exactly what the frontend
+                 * received from the backend.
+                 */
+                console.log(
+                    "Assessment security configuration:",
+                    {
+                        cameraRequired:
+                            normalizedAssessment.cameraRequired,
+
+                        microphoneRequired:
+                            normalizedAssessment.microphoneRequired,
+
+                        fullscreenRequired:
+                            normalizedAssessment.fullscreenRequired
+                    }
+                );
 
             } catch (error) {
 
+                console.error(
+                    "Failed to load assessment instructions:",
+                    error
+                );
+
+                setAssessment(null);
+
                 setErrorMessage(
-                    (currentMessage) =>
+                    currentMessage =>
                         currentMessage ||
                         error.message ||
                         "Unable to load assessment."
@@ -315,14 +440,9 @@ const AssessmentInstructions = () => {
             }
         };
 
-        if (invitationToken) {
-            loadAssessment();
-        }
+        loadAssessment();
 
-    }, [
-        invitationToken,
-        assessment
-    ]);
+    }, [invitationToken]);
 
     // =====================================================
     // REQUEST CAMERA
@@ -352,11 +472,13 @@ const AssessmentInstructions = () => {
 
             stream
                 .getTracks()
-                .forEach((track) => {
+                .forEach(track => {
                     track.stop();
                 });
 
-            setCameraPermission("GRANTED");
+            setCameraPermission(
+                "GRANTED"
+            );
 
         } catch (error) {
 
@@ -365,8 +487,13 @@ const AssessmentInstructions = () => {
                 error
             );
 
-            setCameraPermission("DENIED");
-            setErrorType("PERMISSION");
+            setCameraPermission(
+                "DENIED"
+            );
+
+            setErrorType(
+                "PERMISSION"
+            );
 
             setErrorMessage(
                 "Camera permission was denied. Please allow camera access in your browser settings."
@@ -402,11 +529,13 @@ const AssessmentInstructions = () => {
 
             stream
                 .getTracks()
-                .forEach((track) => {
+                .forEach(track => {
                     track.stop();
                 });
 
-            setMicrophonePermission("GRANTED");
+            setMicrophonePermission(
+                "GRANTED"
+            );
 
         } catch (error) {
 
@@ -415,8 +544,13 @@ const AssessmentInstructions = () => {
                 error
             );
 
-            setMicrophonePermission("DENIED");
-            setErrorType("PERMISSION");
+            setMicrophonePermission(
+                "DENIED"
+            );
+
+            setErrorType(
+                "PERMISSION"
+            );
 
             setErrorMessage(
                 "Microphone permission was denied. Please allow microphone access in your browser settings."
@@ -441,7 +575,9 @@ const AssessmentInstructions = () => {
                     .requestFullscreen();
             }
 
-            setFullscreenReady(true);
+            setFullscreenReady(
+                true
+            );
 
         } catch (error) {
 
@@ -450,8 +586,13 @@ const AssessmentInstructions = () => {
                 error
             );
 
-            setFullscreenReady(false);
-            setErrorType("PERMISSION");
+            setFullscreenReady(
+                false
+            );
+
+            setErrorType(
+                "PERMISSION"
+            );
 
             setErrorMessage(
                 "Fullscreen could not be enabled. Please allow fullscreen mode."
@@ -468,7 +609,9 @@ const AssessmentInstructions = () => {
         const handleFullscreenChange = () => {
 
             setFullscreenReady(
-                Boolean(document.fullscreenElement)
+                Boolean(
+                    document.fullscreenElement
+                )
             );
         };
 
@@ -501,6 +644,7 @@ const AssessmentInstructions = () => {
             assessment.cameraRequired &&
             cameraPermission !== "GRANTED"
         ) {
+
             return false;
         }
 
@@ -508,6 +652,7 @@ const AssessmentInstructions = () => {
             assessment.microphoneRequired &&
             microphonePermission !== "GRANTED"
         ) {
+
             return false;
         }
 
@@ -515,6 +660,7 @@ const AssessmentInstructions = () => {
             assessment.fullscreenRequired &&
             !fullscreenReady
         ) {
+
             return false;
         }
 
@@ -532,7 +678,9 @@ const AssessmentInstructions = () => {
 
         if (!canStartAssessment()) {
 
-            setErrorType("PERMISSION");
+            setErrorType(
+                "PERMISSION"
+            );
 
             setErrorMessage(
                 "Please complete all required permissions before starting the assessment."
@@ -543,7 +691,9 @@ const AssessmentInstructions = () => {
 
         if (!candidateName.trim()) {
 
-            setErrorType("VALIDATION");
+            setErrorType(
+                "VALIDATION"
+            );
 
             setErrorMessage(
                 "Candidate name is required."
@@ -554,7 +704,9 @@ const AssessmentInstructions = () => {
 
         if (!candidateEmail.trim()) {
 
-            setErrorType("VALIDATION");
+            setErrorType(
+                "VALIDATION"
+            );
 
             setErrorMessage(
                 "Candidate email is required."
@@ -608,7 +760,8 @@ const AssessmentInstructions = () => {
 
             try {
 
-                session = JSON.parse(text);
+                session =
+                    JSON.parse(text);
 
             } catch {
 
@@ -626,11 +779,6 @@ const AssessmentInstructions = () => {
                 "SESSION:",
                 session
             );
-
-            // =================================================
-            // IMPORTANT:
-            // THIS MUST MATCH THE ROUTE IN App.jsx EXACTLY
-            // =================================================
 
             navigate(
                 `/assessment/invite/${invitationToken}/test`,
@@ -657,7 +805,7 @@ const AssessmentInstructions = () => {
             );
 
             setErrorMessage(
-                (currentMessage) =>
+                currentMessage =>
                     currentMessage ||
                     error.message ||
                     "Unable to start assessment."
@@ -1262,6 +1410,7 @@ const AssessmentInstructions = () => {
 
                                 setErrorMessage("");
                                 setErrorType("");
+
                             }}
                             aria-label="Close error"
                         >
