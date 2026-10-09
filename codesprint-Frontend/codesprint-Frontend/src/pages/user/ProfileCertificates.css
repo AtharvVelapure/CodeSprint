@@ -1,0 +1,381 @@
+/* =========================================================
+   PROFILE CERTIFICATES — CODESPRINT DARK THEME
+   UI-only replacement. Class names and responsive structure
+   are preserved.
+========================================================= */
+
+.profile-certificates-page {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    padding: 34px 36px 70px;
+    color: #e6f4ff;
+    box-sizing: border-box;
+}
+
+.profile-certificates-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.profile-certificates-back {
+    display: block;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 14px;
+    color: #39bfff;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.profile-certificates-back:hover {
+    color: #7ddcff;
+    text-decoration: none;
+    transform: translateX(-2px);
+}
+
+.profile-certificates-eyebrow {
+    display: block;
+    margin-bottom: 7px;
+    color: #b78cff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.profile-certificates-header h1 {
+    margin: 0 0 8px;
+    color: #f4fbff;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.profile-certificates-header p {
+    margin: 0;
+    color: #8ea6bb;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.profile-certificates-count {
+    min-width: 155px;
+    padding: 17px 18px;
+    border: 1px solid rgba(0, 198, 255, 0.22);
+    border-radius: 14px;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(124, 58, 237, 0.16), transparent 42%),
+        linear-gradient(145deg, #0b1729, #07111f);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+.profile-certificates-count span {
+    display: block;
+    margin-bottom: 5px;
+    color: #b78cff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-certificates-count strong {
+    color: #f5fbff;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.profile-certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.profile-certificate-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    padding: 23px;
+    border: 1px solid #182c43;
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(0, 119, 246, 0.10), transparent 34%),
+        linear-gradient(145deg, #0a1728 0%, #07111f 100%);
+    box-shadow:
+        0 16px 34px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+    overflow: hidden;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-certificate-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #7c3aed, #00c6ff, #0077f6);
+}
+
+.profile-certificate-card:hover {
+    transform: translateY(-3px);
+    border-color: #244765;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.34),
+        0 0 0 1px rgba(0, 198, 255, 0.04);
+}
+
+.profile-certificate-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.profile-certificate-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(124, 58, 237, 0.24);
+    border-radius: 15px;
+    background:
+        radial-gradient(circle at 35% 20%, rgba(183, 140, 255, 0.16), transparent 58%),
+        #0d1630;
+    color: #d6c3ff;
+    font-size: 25px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.profile-certificate-verified {
+    padding: 6px 10px;
+    border: 1px solid #233246;
+    border-radius: 999px;
+    background: #0e1928;
+    color: #8ea6bb;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.profile-certificate-verified.verified {
+    border-color: rgba(0, 198, 255, 0.22);
+    background: rgba(0, 198, 255, 0.08);
+    color: #67d8ff;
+}
+
+.profile-certificate-content {
+    flex: 1;
+    padding-top: 25px;
+}
+
+.profile-certificate-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #698198;
+    text-transform: uppercase;
+}
+
+.profile-certificate-content h2 {
+    margin: 8px 0 20px;
+    color: #edf8ff;
+    font-size: 21px;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+.profile-certificate-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.profile-certificate-meta div {
+    padding: 12px;
+    border: 1px solid #15283d;
+    border-radius: 10px;
+    background: rgba(6, 17, 31, 0.78);
+}
+
+.profile-certificate-meta span {
+    display: block;
+    margin-bottom: 5px;
+    color: #71889d;
+    font-size: 11px;
+}
+
+.profile-certificate-meta strong {
+    display: block;
+    overflow-wrap: anywhere;
+    color: #d9ecf8;
+    font-size: 13px;
+}
+
+.profile-certificate-view-button {
+    width: 100%;
+    margin-top: 22px;
+    border: 1px solid #008df0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0077f6, #0065d8);
+    color: #ffffff;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 119, 246, 0.18);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.profile-certificate-view-button:hover {
+    background: linear-gradient(135deg, #0089ff, #0070ec);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 119, 246, 0.28);
+}
+
+.profile-certificates-empty-card {
+    padding: 75px 25px;
+    border: 1px solid #182c43;
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.08), transparent 45%),
+        linear-gradient(145deg, #0a1728, #07111f);
+    text-align: center;
+    box-shadow:
+        0 16px 34px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.profile-certificates-empty-icon {
+    margin-bottom: 12px;
+    font-size: 40px;
+}
+
+.profile-certificates-empty-card h2 {
+    margin: 0 0 8px;
+    color: #eef8ff;
+    font-size: 21px;
+}
+
+.profile-certificates-empty-card p {
+    max-width: 480px;
+    margin: 0 auto 20px;
+    color: #8ea6bb;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.profile-certificates-empty-card button {
+    border: 1px solid #008df0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0077f6, #0065d8);
+    color: #ffffff;
+    padding: 11px 16px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 119, 246, 0.16);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.profile-certificates-empty-card button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 119, 246, 0.24);
+}
+
+.profile-certificates-error {
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 87, 34, 0.28);
+    border-radius: 10px;
+    background: rgba(255, 87, 34, 0.08);
+    color: #ff9b79;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-certificates-loading {
+    padding: 70px 20px;
+    text-align: center;
+    color: #8ea6bb;
+}
+
+@media (max-width: 850px) {
+    .profile-certificates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-certificates-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .profile-certificates-count {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 560px) {
+    .profile-certificates-page {
+        padding: 25px 18px 50px;
+    }
+
+    .profile-certificate-meta {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   PROFILE CERTIFICATES — FULL DARK PAGE FIX
+   Prevent the parent layout background from appearing white.
+========================================================= */
+
+.profile-certificates-page {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    background:
+        radial-gradient(circle at 88% 0%, rgba(0, 119, 246, 0.08), transparent 30%),
+        radial-gradient(circle at 8% 42%, rgba(124, 58, 237, 0.035), transparent 25%),
+        #030913 !important;
+}
+
+/* Keep the certificate content centered inside the full dark page */
+.profile-certificates-header,
+.profile-certificates-grid,
+.profile-certificates-empty-card,
+.profile-certificates-error,
+.profile-certificates-loading {
+    width: min(1180px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.profile-certificates-header {
+    margin-bottom: 28px;
+}
+
+.profile-certificates-grid {
+    margin-bottom: 0;
+}

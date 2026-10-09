@@ -1,0 +1,926 @@
+/* =================================
+   Certification Details Page
+   CodeSprint Dark Developer Theme
+================================= */
+
+.certification-details-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 5%, rgba(0, 119, 246, 0.10), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(0, 198, 255, 0.07), transparent 24%),
+        linear-gradient(180deg, #030913 0%, #050c18 100%);
+    color: #e6f1ff;
+}
+
+/* =================================
+   Navbar
+================================= */
+
+.certification-details-navbar {
+    height: 70px;
+
+    background: rgba(11, 19, 43, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid #1c2a45;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.details-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #eef7ff;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.details-logo-icon {
+    font-size: 23px;
+    color: #00c6ff;
+    filter: drop-shadow(0 0 10px rgba(0, 198, 255, 0.35));
+}
+
+.details-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.details-nav-button,
+.details-profile-button {
+    height: 38px;
+
+    padding: 0 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #8fa5bf;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.details-nav-button:hover,
+.details-profile-button:hover {
+    background: rgba(0, 119, 246, 0.10);
+    color: #5bcfff;
+}
+
+.details-nav-button.active {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 119, 246, 0.20),
+        rgba(0, 198, 255, 0.10)
+    );
+    color: #4fc9ff;
+    box-shadow: inset 0 0 0 1px rgba(0, 198, 255, 0.10);
+}
+
+.details-profile-button {
+    border: 1px solid #243754;
+    margin-left: 5px;
+    background: rgba(8, 17, 32, 0.65);
+}
+
+.details-profile-button:hover {
+    border-color: #146fc5;
+}
+
+/* =================================
+   Main
+================================= */
+
+.certification-details-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 35px 30px 70px;
+}
+
+/* =================================
+   Back Button
+================================= */
+
+.details-back-button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+    margin-bottom: 25px;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #7f95af;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.details-back-button:hover {
+    color: #54cfff;
+    transform: translateX(-2px);
+}
+
+/* =================================
+   Hero
+================================= */
+
+.certification-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(145deg, rgba(9, 24, 44, 0.98), rgba(6, 16, 31, 0.98));
+
+    border: 1px solid #1d3554;
+    border-radius: 16px;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.certification-hero::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #0077f6,
+        #00c6ff,
+        rgba(0, 198, 255, 0)
+    );
+}
+
+.certification-hero::after {
+    content: "";
+
+    position: absolute;
+    width: 210px;
+    height: 210px;
+
+    top: -120px;
+    right: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 119, 246, 0.08);
+
+    filter: blur(4px);
+
+    pointer-events: none;
+}
+
+.hero-icon {
+    width: 76px;
+    height: 76px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 119, 246, 0.23),
+            rgba(0, 198, 255, 0.10)
+        );
+
+    border: 1px solid rgba(0, 198, 255, 0.22);
+
+    color: #55d4ff;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 119, 246, 0.12),
+        inset 0 0 20px rgba(0, 198, 255, 0.05);
+}
+
+.hero-content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-badges {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.hero-category,
+.hero-difficulty,
+.hero-status {
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.hero-category {
+    background: #101f34;
+    color: #9ab0c8;
+    border: 1px solid #223754;
+}
+
+.hero-status {
+    background: rgba(34, 197, 94, 0.12);
+    color: #5ee38a;
+    border: 1px solid rgba(34, 197, 94, 0.20);
+}
+
+.hero-difficulty.easy {
+    background: rgba(34, 197, 94, 0.11);
+    color: #57dc84;
+    border: 1px solid rgba(34, 197, 94, 0.19);
+}
+
+.hero-difficulty.medium,
+.hero-difficulty.intermediate {
+    background: rgba(255, 152, 0, 0.12);
+    color: #ffbd5b;
+    border: 1px solid rgba(255, 152, 0, 0.22);
+}
+
+.hero-difficulty.hard,
+.hero-difficulty.advanced {
+    background: rgba(255, 87, 34, 0.12);
+    color: #ff9773;
+    border: 1px solid rgba(255, 87, 34, 0.22);
+}
+
+.hero-content h1 {
+    margin: 0 0 10px;
+
+    color: #f0f7ff;
+
+    font-size: 30px;
+    font-weight: 800;
+
+    letter-spacing: -0.02em;
+}
+
+.hero-content p {
+    max-width: 750px;
+
+    margin: 0;
+
+    color: #91a7bf;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =================================
+   Stats
+================================= */
+
+.certification-stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 20px;
+}
+
+.detail-stat-card {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(145deg, #081526, #06111f);
+
+    border: 1px solid #1b304c;
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.detail-stat-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #28527b;
+
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.22),
+        0 0 20px rgba(0, 119, 246, 0.05);
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 119, 246, 0.20),
+            rgba(0, 198, 255, 0.09)
+        );
+
+    border: 1px solid rgba(0, 198, 255, 0.13);
+
+    color: #54cef9;
+    font-size: 19px;
+}
+
+.detail-stat-card div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-stat-card span {
+    color: #7087a1;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.detail-stat-card strong {
+    color: #e5effa;
+    font-size: 15px;
+}
+
+/* =================================
+   Content
+================================= */
+
+.certification-content {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* =================================
+   Instructions
+================================= */
+
+.instructions-card {
+    background:
+        linear-gradient(145deg, #081526, #06111f);
+
+    border: 1px solid #1b304c;
+    border-radius: 14px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.17),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.instructions-card h2 {
+    margin: 0 0 22px;
+
+    color: #eef6ff;
+
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.instruction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.instruction-item > span {
+    width: 27px;
+    height: 27px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 119, 246, 0.22),
+            rgba(0, 198, 255, 0.10)
+        );
+
+    border: 1px solid rgba(0, 198, 255, 0.16);
+
+    color: #55d3ff;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.instruction-item p {
+    margin: 3px 0 0;
+
+    color: #8da3bb;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.instruction-item strong {
+    color: #dce9f6;
+}
+
+/* =================================
+   Start Card
+================================= */
+
+.start-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 198, 255, 0.08),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #09182a,
+            #06111f
+        );
+
+    border: 1px solid #1c5a84;
+    border-radius: 14px;
+
+    box-shadow:
+        0 16px 38px rgba(0, 0, 0, 0.23),
+        0 0 30px rgba(0, 119, 246, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.start-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0077f6,
+            #00c6ff,
+            #0077f6
+        );
+}
+
+.start-card-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 119, 246, 0.22),
+            rgba(0, 198, 255, 0.10)
+        );
+
+    border: 1px solid rgba(0, 198, 255, 0.18);
+
+    color: #61d7ff;
+
+    font-size: 27px;
+
+    margin-bottom: 17px;
+
+    box-shadow:
+        0 0 25px rgba(0, 198, 255, 0.09),
+        inset 0 0 18px rgba(0, 198, 255, 0.05);
+}
+
+.start-card h2 {
+    margin: 0 0 9px;
+    color: #f1f7ff;
+    font-size: 20px;
+}
+
+.start-card p {
+    margin: 0 0 25px;
+
+    color: #8da4bd;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.start-certification-button {
+    width: 100%;
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 1px solid #0088ff;
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006fe6,
+            #00a7f5
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.start-certification-button:hover:not(:disabled) {
+    background:
+        linear-gradient(
+            135deg,
+            #0080f6,
+            #00b8ff
+        );
+
+    border-color: #19bfff;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 24px rgba(0, 119, 246, 0.22);
+}
+
+.start-certification-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* =================================
+   Error
+================================= */
+
+.details-inline-error {
+    margin-bottom: 20px;
+
+    padding: 12px 15px;
+
+    border: 1px solid rgba(255, 87, 34, 0.30);
+    border-radius: 8px;
+
+    background: rgba(255, 87, 34, 0.09);
+
+    color: #ff9b79;
+
+    font-size: 13px;
+}
+
+.details-error {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.details-error-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.details-error h2 {
+    margin: 0 0 8px;
+    color: #e6eff8;
+}
+
+.details-error p {
+    margin: 0 0 20px;
+    color: #8da3ba;
+}
+
+.back-certifications-button {
+    height: 40px;
+
+    padding: 0 17px;
+
+    border: 1px solid #147eda;
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #006fe6,
+            #00a4ef
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.back-certifications-button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #0080f6,
+            #00b8ff
+        );
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 119, 246, 0.20);
+}
+
+/* =================================
+   Loading
+================================= */
+
+.details-loading {
+    min-height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #8da3ba;
+    font-size: 13px;
+}
+
+.details-spinner {
+    width: 36px;
+    height: 36px;
+
+    margin-bottom: 15px;
+
+    border: 3px solid #1a2d47;
+
+    border-top-color: #00c6ff;
+    border-right-color: #0077f6;
+
+    border-radius: 50%;
+
+    animation: details-spin 0.8s linear infinite;
+}
+
+@keyframes details-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =================================
+   Tablet
+================================= */
+
+@media (max-width: 850px) {
+
+    .certification-details-navbar {
+        padding: 0 20px;
+    }
+
+    .certification-details-main {
+        padding: 30px 20px 60px;
+    }
+
+    .certification-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =================================
+   Mobile
+================================= */
+
+@media (max-width: 650px) {
+
+    .certification-details-navbar {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 14px;
+    }
+
+    .details-nav-actions {
+        width: 100%;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .details-nav-button,
+    .details-profile-button {
+        flex-shrink: 0;
+    }
+
+    .certification-details-main {
+        padding: 25px 15px 50px;
+    }
+
+    .certification-hero {
+        flex-direction: column;
+
+        padding: 22px;
+
+        gap: 18px;
+    }
+
+    .hero-content h1 {
+        font-size: 25px;
+    }
+
+    .hero-badges {
+        flex-wrap: wrap;
+    }
+
+    .certification-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .instructions-card,
+    .start-card {
+        padding: 21px;
+    }
+}
+
+
+/* =================================
+   Component Scope Protection
+   Prevent generic global CSS such as
+   .instructions-card from overriding
+   the Certification Details page.
+================================= */
+
+.certification-details-page .instructions-card {
+    background:
+        linear-gradient(145deg, #081526, #06111f) !important;
+
+    border: 1px solid #1b304c !important;
+
+    color: #e6f1ff !important;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.17),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02) !important;
+}
+
+.certification-details-page .instructions-card h2 {
+    color: #eef6ff !important;
+}
+
+.certification-details-page .instruction-item p {
+    color: #8da3bb !important;
+}
+
+.certification-details-page .instruction-item strong {
+    color: #dce9f6 !important;
+}
+
+.certification-details-page .instruction-item > span {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 119, 246, 0.22),
+            rgba(0, 198, 255, 0.10)
+        ) !important;
+
+    border: 1px solid rgba(0, 198, 255, 0.16) !important;
+
+    color: #55d3ff !important;
+}

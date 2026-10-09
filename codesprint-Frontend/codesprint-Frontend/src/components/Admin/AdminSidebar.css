@@ -1,0 +1,217 @@
+/* =======================================================
+   CODESPRINT - ADMIN SIDEBAR
+   Professional Dark Admin Theme
+======================================================= */
+
+.admin-sidebar {
+    width: 260px;
+    min-width: 260px;
+
+    background: #0b132b;
+    border-right: 1px solid #1c2541;
+
+    min-height: calc(100vh - 72px);
+
+    position: fixed;
+    top: 72px;
+    left: 0;
+    bottom: 0;
+
+    padding: 20px 14px;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    z-index: 100;
+}
+
+/* =======================================================
+   SIDEBAR MENU
+======================================================= */
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+}
+
+/* =======================================================
+   SIDEBAR ITEM
+======================================================= */
+
+.sidebar-item {
+    width: 100%;
+    min-height: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    padding: 0 14px;
+
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    text-decoration: none;
+    color: #94a3b8;
+
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+/* =======================================================
+   HOVER
+======================================================= */
+
+.sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* =======================================================
+   ACTIVE
+======================================================= */
+
+.sidebar-item.active {
+    background: linear-gradient(
+        135deg,
+        #0077f6 0%,
+        #00bfff 100%
+    );
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0, 119, 246, 0.35);
+}
+
+/* =======================================================
+   SIDEBAR ICON
+======================================================= */
+
+.sidebar-icon {
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* =======================================================
+   SIDEBAR TEXT (Allowing full name visibility)
+======================================================= */
+
+.sidebar-item span:last-child {
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+    display: inline-block;
+}
+
+/* =======================================================
+   LOGOUT ITEM
+======================================================= */
+
+.sidebar-item.logout-item {
+    margin-top: 14px;
+    border-top: 1px solid #1c2541;
+    padding-top: 10px;
+    border-radius: 0;
+}
+
+.sidebar-item.logout-item:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border-radius: 8px;
+}
+
+/* =======================================================
+   SCROLLBAR
+======================================================= */
+
+.admin-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.admin-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb {
+    background: #1c2541;
+    border-radius: 10px;
+}
+
+.admin-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #0077f6;
+}
+
+/* =======================================================
+   RESPONSIVE (Only trigger collapse on actual phones)
+======================================================= */
+
+/* =======================================================
+   RESPONSIVE LAYOUT (Auto-collapse on narrower screens)
+======================================================= */
+
+/* Tablet / Half-screen (Screen width <= 1024px) */
+@media (max-width: 1024px) {
+    .admin-sidebar {
+        width: 72px;
+        min-width: 72px;
+        padding: 16px 8px;
+    }
+
+    /* Hide text labels, show only icons centered */
+    .admin-sidebar .sidebar-item {
+        justify-content: center;
+        padding: 0;
+        height: 44px;
+    }
+
+    .admin-sidebar .sidebar-item span:last-child {
+        display: none;
+    }
+
+    /* Reduce main content margin to match collapsed sidebar */
+    .admin-main-content {
+        margin-left: 72px;
+        width: calc(100% - 72px);
+        padding: 20px;
+    }
+}
+
+/* Mobile (Screen width <= 640px) */
+@media (max-width: 640px) {
+    .admin-sidebar {
+        width: 60px;
+        min-width: 60px;
+        padding: 12px 6px;
+    }
+
+    .admin-sidebar .sidebar-icon {
+        font-size: 16px;
+    }
+
+    .admin-main-content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+        padding: 16px 12px;
+    }
+}

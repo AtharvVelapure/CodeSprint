@@ -1,0 +1,414 @@
+/* =======================================================
+   ADMIN SUBMISSIONS PAGE
+   CodeSprint Dark Theme
+======================================================= */
+
+.admin-submissions-page {
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 24px 32px !important;
+    box-sizing: border-box !important;
+    background-color: #030914 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    font-family: inherit !important;
+}
+
+/* ========================================
+   PAGE HEADER
+======================================== */
+
+.submissions-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    margin: 0 !important;
+}
+
+.submissions-header-info h1 {
+    margin: 0 0 6px 0 !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    color: #f8fafc !important;
+}
+
+.submissions-header-info p {
+    margin: 0 !important;
+    font-size: 14px !important;
+    color: #94a3b8 !important;
+}
+
+/* TOTAL COUNT BADGE */
+
+.submission-count {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 8px 16px !important;
+    background: #081120 !important;
+    border: 1px solid #142238 !important;
+    border-radius: 8px !important;
+    color: #94a3b8 !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+.submission-count strong {
+    color: #38bdf8 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+}
+
+/* ========================================
+   TOOLBAR
+======================================== */
+
+.submissions-toolbar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 14px 18px !important;
+    background: #081120 !important;
+    border: 1px solid #142238 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+}
+
+/* SEARCH BOX */
+
+.submissions-search-wrapper {
+    flex: 1 1 auto !important;
+    min-width: 220px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 0 14px !important;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px !important;
+    background-color: #040913 !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.submissions-search-wrapper:focus-within {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.submissions-search-wrapper svg {
+    color: #64748b !important;
+    flex-shrink: 0 !important;
+}
+
+.submissions-search-wrapper input {
+    width: 100% !important;
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    color: #f8fafc !important;
+    font-size: 13.5px !important;
+}
+
+.submissions-search-wrapper input::placeholder {
+    color: #64748b !important;
+}
+
+/* STATUS FILTER SELECT */
+
+.submissions-status-select {
+    height: 40px !important;
+    min-width: 170px !important;
+    padding: 0 38px 0 14px !important;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    background-color: #040913 !important;
+    color: #f8fafc !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.submissions-status-select:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.submissions-status-select option {
+    background-color: #081120 !important;
+    color: #f8fafc !important;
+    padding: 8px 12px !important;
+}
+
+/* ========================================
+   TABLE CONTAINER
+======================================== */
+
+.submissions-table-container {
+    width: 100% !important;
+    overflow-x: auto !important;
+    background: #081120 !important;
+    border: 1px solid #142238 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+}
+
+/* ========================================
+   TABLE
+======================================== */
+
+.submissions-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    min-width: 900px !important;
+    text-align: left !important;
+}
+
+/* TABLE HEADER */
+
+.submissions-table th {
+    padding: 13px 20px !important;
+    background: #070e1a !important;
+    border-bottom: 1px solid #142238 !important;
+    color: #94a3b8 !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    white-space: nowrap !important;
+}
+
+/* TABLE BODY */
+
+.submissions-table td {
+    padding: 14px 20px !important;
+    border-bottom: 1px solid #0e1a2c !important;
+    color: #cbd5e1 !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+}
+
+.submissions-table tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* ROW HOVER (NO WHITE BLEED) */
+
+.submissions-table tbody tr {
+    transition: background-color 0.15s ease !important;
+}
+
+.submissions-table tbody tr:hover,
+.submissions-table tbody tr:hover td {
+    background-color: #0b1a2e !important;
+    color: #f1f5f9 !important;
+}
+
+.submission-id-text {
+    color: #38bdf8 !important;
+    font-weight: 600 !important;
+}
+
+.submission-date-text {
+    color: #94a3b8 !important;
+    font-size: 12.5px !important;
+}
+
+/* ========================================
+   LANGUAGE BADGE
+======================================== */
+
+.language-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    background: rgba(56, 189, 248, 0.1) !important;
+    border: 1px solid rgba(56, 189, 248, 0.25) !important;
+    color: #38bdf8 !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+}
+
+/* ========================================
+   STATUS BADGES
+======================================== */
+
+.submission-status {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 4px 10px !important;
+    border-radius: 999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    white-space: nowrap !important;
+}
+
+.submission-status::before {
+    content: '' !important;
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+}
+
+/* ACCEPTED */
+.status-accepted {
+    background: rgba(34, 197, 94, 0.1) !important;
+    color: #4ade80 !important;
+    border: 1px solid rgba(34, 197, 94, 0.25) !important;
+}
+.status-accepted::before { background: #4ade80 !important; }
+
+/* WRONG ANSWER */
+.status-wrong {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+}
+.status-wrong::before { background: #f87171 !important; }
+
+/* RUNTIME ERROR */
+.status-runtime {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #fbbf24 !important;
+    border: 1px solid rgba(245, 158, 11, 0.25) !important;
+}
+.status-runtime::before { background: #fbbf24 !important; }
+
+/* DEFAULT */
+.status-default {
+    background: rgba(148, 163, 184, 0.1) !important;
+    color: #94a3b8 !important;
+    border: 1px solid rgba(148, 163, 184, 0.25) !important;
+}
+.status-default::before { background: #94a3b8 !important; }
+
+/* ========================================
+   ACTION BUTTONS
+======================================== */
+
+.submission-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.submission-actions button {
+    border: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.15s ease !important;
+}
+
+/* VIEW */
+.view-btn {
+    background: rgba(37, 99, 235, 0.12) !important;
+    border: 1px solid rgba(37, 99, 235, 0.25) !important;
+    color: #60a5fa !important;
+}
+
+.view-btn:hover {
+    background: rgba(37, 99, 235, 0.22) !important;
+    color: #93c5fd !important;
+}
+
+/* DELETE */
+.delete-btn {
+    background: rgba(239, 68, 68, 0.12) !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+    color: #f87171 !important;
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.22) !important;
+    color: #fca5a5 !important;
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.no-submissions {
+    text-align: center !important;
+    padding: 60px 20px !important;
+    color: #64748b !important;
+    font-size: 14px !important;
+}
+
+/* ========================================
+   LOADING / ERROR
+======================================== */
+
+.submissions-loading {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 350px !important;
+    font-size: 14px !important;
+    color: #94a3b8 !important;
+}
+
+.submissions-error {
+    padding: 14px 18px !important;
+    background: rgba(239, 68, 68, 0.1) !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+    border-radius: 8px !important;
+    color: #fca5a5 !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    .admin-submissions-page {
+        padding: 16px !important;
+    }
+
+    .submissions-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+    }
+
+    .submission-count {
+        width: 100% !important;
+        justify-content: space-between !important;
+        box-sizing: border-box !important;
+    }
+
+    .submissions-toolbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .submissions-search-wrapper,
+    .submissions-status-select {
+        width: 100% !important;
+    }
+}

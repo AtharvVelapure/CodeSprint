@@ -1,0 +1,794 @@
+/* =========================================================
+   BASE LAYOUT & CONTAINER (Fixes sidebar overlap)
+========================================================= */
+
+.contest-management {
+    min-height: 100vh;
+    background-color: #030816;
+    color: #e2e8f0;
+    padding: 24px 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: inherit;
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.contest-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.contest-page-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #38bdf8;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.contest-page-header h1 {
+    margin: 0 0 6px 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #f8fafc;
+    letter-spacing: -0.02em;
+}
+
+.contest-page-header p {
+    margin: 0;
+    font-size: 13.5px;
+    color: #94a3b8;
+}
+
+.create-contest-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    transition: all 0.15s ease;
+}
+
+.create-contest-button:hover {
+    background: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+.contest-success-message,
+.contest-error-message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contest-success-message {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+}
+
+.contest-error-message {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+/* =========================================================
+   STATS GRID
+========================================================= */
+
+.contest-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.contest-stat-card {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: border-color 0.2s;
+}
+
+.contest-stat-card:hover {
+    border-color: #1e3557;
+}
+
+.stat-info span {
+    font-size: 12px;
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.stat-info strong {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.contest-stat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.contest-stat-icon.total { background: rgba(56, 189, 248, 0.12); color: #38bdf8; }
+.contest-stat-icon.draft { background: rgba(148, 163, 184, 0.12); color: #94a3b8; }
+.contest-stat-icon.upcoming { background: rgba(245, 158, 11, 0.12); color: #fbbf24; }
+.contest-stat-icon.active { background: rgba(239, 68, 68, 0.12); color: #f87171; }
+.contest-stat-icon.completed { background: rgba(34, 197, 94, 0.12); color: #4ade80; }
+
+/* =========================================================
+   SEARCH & FILTERS
+========================================================= */
+
+.contest-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contest-search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 8px;
+    padding: 0 12px;
+    height: 40px;
+    flex: 1;
+    max-width: 380px;
+}
+
+.contest-search-box svg {
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.contest-search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f8fafc;
+    font-size: 13px;
+    width: 100%;
+}
+
+.contest-status-filter {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 8px;
+    color: #cbd5e1;
+    font-size: 13px;
+    height: 40px;
+    padding: 0 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.contest-status-filter option {
+    background: #081120;
+    color: #f8fafc;
+}
+
+.contest-refresh-button {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 8px;
+    color: #cbd5e1;
+    font-size: 13px;
+    height: 40px;
+    padding: 0 16px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.contest-refresh-button:hover:not(:disabled) {
+    background: #142238;
+    color: #ffffff;
+}
+
+/* =========================================================
+   TABLE CONTAINER
+========================================================= */
+
+.contest-table-card {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contest-table-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #142238;
+    background: #060d19;
+}
+
+.contest-table-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.contest-table-header p {
+    margin: 3px 0 0;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.contest-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.contest-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.contest-table thead {
+    background: #050a14;
+    border-bottom: 1px solid #142238;
+}
+
+.contest-table th {
+    padding: 12px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.contest-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #101c30;
+    vertical-align: middle;
+}
+
+.contest-table tbody tr:hover {
+    background: #0b172c;
+}
+
+/* Cell Elements */
+.contest-title-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 220px;
+}
+
+.contest-title-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.contest-title-cell strong {
+    display: block;
+    color: #f8fafc;
+    font-size: 13.5px;
+    font-weight: 600;
+}
+
+.contest-title-cell span {
+    display: block;
+    color: #64748b;
+    font-size: 11.5px;
+    margin-top: 2px;
+}
+
+.contest-date {
+    color: #cbd5e1;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.contest-duration {
+    font-family: monospace;
+    color: #cbd5e1;
+    font-size: 12px;
+}
+
+.contest-created-by strong {
+    display: block;
+    color: #e2e8f0;
+    font-size: 12px;
+}
+
+.contest-created-by span {
+    color: #64748b;
+    font-size: 11px;
+}
+
+/* =========================================================
+   STATUS PILLS
+========================================================= */
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-pill::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.status-pill.draft {
+    background: rgba(148, 163, 184, 0.1);
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+.status-pill.draft::before { background: #94a3b8; }
+
+.status-pill.upcoming {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+.status-pill.upcoming::before { background: #fbbf24; }
+
+.status-pill.active {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.status-pill.active::before { background: #f87171; }
+
+.status-pill.completed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+.status-pill.completed::before { background: #4ade80; }
+
+.status-pill.cancelled {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.status-pill.cancelled::before { background: #f87171; }
+
+/* =========================================================
+   ACTIONS COLUMN & BUTTONS (Edit, Problems, Participants, etc.)
+========================================================= */
+
+.contest-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.action-button {
+    border-radius: 6px;
+    padding: 6px 11px;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+}
+
+/* Edit */
+.action-button.edit {
+    background: #0f1c30;
+    border-color: #1e3250;
+    color: #cbd5e1;
+}
+.action-button.edit:hover:not(:disabled) {
+    background: #192c4b;
+    color: #ffffff;
+}
+
+/* Problems */
+.action-button.problems {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.25);
+    color: #38bdf8;
+}
+.action-button.problems:hover:not(:disabled) {
+    background: rgba(56, 189, 248, 0.2);
+}
+
+/* Participants */
+.action-button.participants {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.25);
+    color: #818cf8;
+}
+.action-button.participants:hover:not(:disabled) {
+    background: rgba(99, 102, 241, 0.2);
+}
+
+/* Publish */
+.action-button.publish {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+}
+.action-button.publish:hover:not(:disabled) {
+    background: rgba(34, 197, 94, 0.22);
+}
+
+/* Cancel */
+.action-button.cancel {
+    background: rgba(249, 115, 22, 0.12);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #fb923c;
+}
+.action-button.cancel:hover:not(:disabled) {
+    background: rgba(249, 115, 22, 0.22);
+}
+
+/* End */
+.action-button.end {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+.action-button.end:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.22);
+}
+
+/* Delete */
+.action-button.delete {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+.action-button.delete:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.action-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* =========================================================
+   POP-UP MODAL (CREATE / EDIT CONTEST)
+========================================================= */
+
+.contest-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(2, 6, 23, 0.82);
+    backdrop-filter: blur(6px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.contest-modal {
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    background: #091222;
+    border: 1px solid #1a2a44;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.contest-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px 24px;
+    background: #060c18;
+    border-bottom: 1px solid #142238;
+}
+
+.contest-modal-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #38bdf8;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.contest-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.contest-modal-header p {
+    margin: 3px 0 0;
+    font-size: 12.5px;
+    color: #94a3b8;
+}
+
+.contest-close-button {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 2px 8px;
+}
+
+.contest-close-button:hover {
+    color: #ffffff;
+    background: #142238;
+}
+
+/* Modal Form */
+.contest-form {
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.contest-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contest-form-group label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.contest-form-group label span {
+    color: #f87171;
+    margin-left: 2px;
+}
+
+.contest-form-group input,
+.contest-form-group textarea {
+    background: #050a14;
+    border: 1px solid #1a2a44;
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: #f8fafc;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+}
+
+.contest-form-group input:focus,
+.contest-form-group textarea:focus {
+    border-color: #38bdf8;
+}
+
+.contest-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.contest-duration-input {
+    display: flex;
+    align-items: center;
+    background: #050a14;
+    border: 1px solid #1a2a44;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.contest-duration-input input {
+    border: none;
+    flex: 1;
+}
+
+.contest-duration-input span {
+    padding: 0 12px;
+    font-size: 12px;
+    color: #64748b;
+    background: #0a1424;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #1a2a44;
+}
+
+.contest-calculated-end {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.contest-calculated-end strong {
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.contest-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 16px;
+    border-top: 1px solid #142238;
+}
+
+.contest-cancel-button {
+    background: #0f1c30;
+    border: 1px solid #1a2a44;
+    color: #cbd5e1;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.contest-cancel-button:hover {
+    background: #142238;
+    color: #ffffff;
+}
+
+.contest-save-button {
+    background: #0284c7;
+    border: none;
+    color: #ffffff;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.contest-save-button:hover {
+    background: #0ea5e9;
+}
+
+/* =========================================================
+   EMPTY & LOADING
+========================================================= */
+
+.contest-loading,
+.contest-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #64748b;
+}
+
+.contest-spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid rgba(56, 189, 248, 0.2);
+    border-top-color: #38bdf8;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.contest-empty-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.contest-empty h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    color: #e2e8f0;
+}
+
+.contest-empty p {
+    margin: 0;
+    font-size: 12.5px;
+}
+
+/* =========================================================
+   RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 1200px) {
+    .contest-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .contest-management {
+        margin-left: 0;
+        width: 100%;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .contest-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contest-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contest-search-box {
+        max-width: 100%;
+    }
+}

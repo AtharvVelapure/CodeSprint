@@ -1,0 +1,918 @@
+
+/* =========================================================
+   CODESPRINT — CONTEST REGISTRATION
+   DARK DEVELOPER PLATFORM THEME
+   UI ONLY — FUNCTIONALITY UNCHANGED
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --cs-blue: #0077f6;
+    --cs-cyan: #00c6ff;
+    --cs-orange: #ff5722;
+    --cs-amber: #ff9800;
+
+    --cs-blue-gradient: linear-gradient(
+        135deg,
+        #0077f6 0%,
+        #00c6ff 100%
+    );
+
+    --cs-orange-gradient: linear-gradient(
+        135deg,
+        #ff5722 0%,
+        #ff9800 100%
+    );
+
+    --registration-bg: #030913;
+    --registration-card: #081120;
+    --registration-card-alt: #0a1628;
+    --registration-panel: #0b1729;
+
+    --registration-border: #172741;
+    --registration-border-light: #203655;
+    --registration-divider: #172a42;
+
+    --registration-text: #f3f8ff;
+    --registration-text-secondary: #8ea3bd;
+    --registration-text-muted: #627791;
+
+    --registration-green: #24d39b;
+    --registration-yellow: #ffbc2f;
+    --registration-red: #ff6868;
+
+    --registration-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.26),
+        0 0 0 1px rgba(255, 255, 255, 0.01);
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.contest-registration-page {
+    position: relative;
+
+    min-height: 100vh;
+    width: 100%;
+
+    padding: 48px 20px 60px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 86% 0%,
+            rgba(0, 119, 246, 0.075),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 8% 72%,
+            rgba(0, 198, 255, 0.035),
+            transparent 29%
+        ),
+        #030913;
+
+    color: var(--registration-text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Inter",
+        sans-serif;
+}
+
+.contest-registration-page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.18;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px
+        );
+
+    background-size: 32px 32px;
+}
+
+.contest-registration-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.contest-registration-card {
+    width: 100%;
+    max-width: 980px;
+
+    margin: 0 auto;
+
+    padding: 36px;
+
+    box-sizing: border-box;
+
+    background:
+        linear-gradient(
+            145deg,
+            #091526 0%,
+            #07111f 100%
+        );
+
+    border: 1px solid var(--registration-border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        var(--registration-shadow),
+        0 0 28px rgba(0, 119, 246, 0.035);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.contest-registration-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0077f6 0%,
+            #00c6ff 45%,
+            #ff5722 88%,
+            #ff9800 100%
+        );
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.contest-registration-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.contest-platform-name {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+
+    font-size: 10.5px;
+
+    font-weight: 850;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+    color: #55d4ff;
+}
+
+.contest-platform-name::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--cs-cyan);
+
+    box-shadow:
+        0 0 8px rgba(0, 198, 255, 0.72);
+}
+
+.contest-registration-header h1 {
+    margin: 0;
+
+    font-size: 32px;
+
+    line-height: 1.15;
+
+    font-weight: 850;
+
+    letter-spacing: -0.035em;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            110deg,
+            #ffffff 12%,
+            #9de1ff 60%,
+            #ff8c68 100%
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+.contest-registration-header p {
+    margin: 12px 0 0;
+
+    max-width: 650px;
+
+    line-height: 1.65;
+
+    color: var(--registration-text-secondary);
+
+    font-size: 13.5px;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.contest-status-badge {
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 30px;
+
+    padding: 0 14px;
+
+    border-radius: 999px;
+
+    font-size: 9.5px;
+
+    font-weight: 850;
+
+    letter-spacing: 0.07em;
+
+    text-transform: uppercase;
+}
+
+.status-upcoming {
+    background: rgba(0, 198, 255, 0.08);
+
+    color: #58d5ff;
+
+    border: 1px solid rgba(0, 198, 255, 0.20);
+}
+
+.status-live {
+    background: rgba(36, 211, 155, 0.08);
+
+    color: #43dea9;
+
+    border: 1px solid rgba(36, 211, 155, 0.20);
+}
+
+.status-finished {
+    background: rgba(148, 163, 184, 0.08);
+
+    color: #aebdcb;
+
+    border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.status-cancelled {
+    background: rgba(255, 98, 98, 0.08);
+
+    color: #ff7373;
+
+    border: 1px solid rgba(255, 98, 98, 0.20);
+}
+
+.status-draft {
+    background: rgba(255, 152, 0, 0.08);
+
+    color: #ffc04b;
+
+    border: 1px solid rgba(255, 152, 0, 0.20);
+}
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.contest-details-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.contest-detail-item {
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1728,
+            #081321
+        );
+
+    border: 1px solid #192d47;
+
+    border-radius: 11px;
+
+    transition:
+        border-color 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.contest-detail-item:hover {
+    transform: translateY(-1px);
+
+    border-color: #243c5b;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.contest-detail-item span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 9.5px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.07em;
+
+    color: #69809a;
+}
+
+.contest-detail-item strong {
+    font-size: 14px;
+
+    color: #d8e7f4;
+
+    font-weight: 750;
+}
+
+/* =========================================================
+   ACCOUNT
+========================================================= */
+
+.contest-account-bar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 18px;
+
+    margin-bottom: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0a1728,
+            #091423
+        );
+
+    border: 1px solid #192d47;
+
+    border-radius: 10px;
+}
+
+.contest-account-bar span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 10px;
+
+    color: #6d829b;
+}
+
+.contest-account-bar strong {
+    color: #e3eef7;
+
+    font-size: 13px;
+
+    font-weight: 750;
+}
+
+/* =========================================================
+   ACTION / LOBBY
+========================================================= */
+
+.contest-action-panel,
+.contest-lobby {
+    position: relative;
+
+    padding: 34px;
+
+    text-align: center;
+
+    border: 1px solid #1a2e47;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #091727,
+            #07111f
+        );
+
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+}
+
+.contest-action-panel::before,
+.contest-lobby::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
+    width: 115px;
+    height: 3px;
+
+    border-radius: 0 0 7px 7px;
+
+    background: var(--cs-blue-gradient);
+}
+
+.contest-action-panel h2,
+.contest-lobby h2 {
+    margin: 10px 0;
+
+    color: #f2f8ff;
+
+    font-size: 21px;
+
+    font-weight: 850;
+}
+
+.contest-action-panel p,
+.contest-lobby-text {
+    color: #8398b0;
+
+    line-height: 1.65;
+
+    font-size: 13px;
+}
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.contest-success-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 30px;
+
+    padding: 0 12px;
+
+    background: rgba(36, 211, 155, 0.08);
+
+    border: 1px solid rgba(36, 211, 155, 0.21);
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 850;
+
+    color: #43dda9;
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.contest-countdown-wrapper {
+    margin: 32px 0;
+}
+
+.contest-countdown-title {
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.10em;
+
+    color: #71869f;
+}
+
+.contest-countdown {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.countdown-box {
+    min-width: 92px;
+
+    padding: 18px 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0c1d32,
+            #081423
+        );
+
+    border: 1px solid #1d3550;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.20);
+}
+
+.countdown-box strong {
+    display: block;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    color: #f4faff;
+
+    font-weight: 850;
+
+    text-shadow:
+        0 0 18px rgba(0, 198, 255, 0.08);
+}
+
+.countdown-box span {
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.10em;
+
+    color: #7e93aa;
+
+    text-transform: uppercase;
+}
+
+.countdown-separator {
+    font-size: 30px;
+
+    font-weight: 750;
+
+    color: #42617f;
+}
+
+/* =========================================================
+   LIVE
+========================================================= */
+
+.contest-live-lobby {
+    border-color: rgba(36, 211, 155, 0.22);
+}
+
+.contest-live-indicator {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-height: 30px;
+
+    padding: 0 12px;
+
+    background: rgba(36, 211, 155, 0.08);
+
+    border: 1px solid rgba(36, 211, 155, 0.18);
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    color: #48dda9;
+}
+
+.contest-live-indicator span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    box-shadow:
+        0 0 8px currentColor;
+}
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.contest-warning-box {
+    max-width: 620px;
+
+    margin: 22px auto;
+
+    padding: 14px 16px;
+
+    background:
+        rgba(255, 180, 40, 0.07);
+
+    border: 1px solid rgba(255, 180, 40, 0.20);
+
+    border-radius: 9px;
+
+    line-height: 1.55;
+
+    color: #ffc85d;
+
+    font-size: 12.5px;
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.contest-primary-button {
+    min-width: 190px;
+
+    min-height: 44px;
+
+    padding: 0 24px;
+
+    margin-top: 14px;
+
+    border: 1px solid rgba(0, 198, 255, 0.20);
+
+    border-radius: 9px;
+
+    background: var(--cs-blue-gradient);
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13.5px;
+
+    font-weight: 850;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.contest-primary-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 23px rgba(0, 119, 246, 0.28);
+
+    border-color: rgba(0, 198, 255, 0.40);
+}
+
+.contest-primary-button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.50;
+}
+
+.contest-disabled-button {
+    background: #19283b;
+
+    border-color: #253a53;
+
+    color: #71849b;
+
+    box-shadow: none;
+}
+
+.contest-button-help {
+    margin-top: 10px;
+
+    font-size: 11px;
+
+    color: #647991;
+}
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.contest-message {
+    margin-bottom: 20px;
+
+    padding: 13px 16px;
+
+    border: 1px solid rgba(0, 198, 255, 0.18);
+
+    border-radius: 9px;
+
+    background:
+        rgba(0, 119, 246, 0.07);
+
+    color: #71d8ff;
+
+    font-size: 12.5px;
+
+    line-height: 1.5;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.contest-loading {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    color: #8095ad;
+
+    background: #030913;
+}
+
+.contest-loading::before {
+    content: "";
+
+    display: block;
+
+    width: 33px;
+    height: 33px;
+
+    margin: 0 auto 14px;
+
+    border: 3px solid #1a2e47;
+
+    border-top-color: #0077f6;
+
+    border-right-color: #00c6ff;
+
+    border-radius: 50%;
+
+    animation:
+        registration-spin 0.8s linear infinite;
+}
+
+@keyframes registration-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   SCROLLBARS
+========================================================= */
+
+.contest-registration-page *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.contest-registration-page *::-webkit-scrollbar-track {
+    background: #050c17;
+}
+
+.contest-registration-page *::-webkit-scrollbar-thumb {
+    background: #1b314d;
+
+    border-radius: 999px;
+}
+
+.contest-registration-page *::-webkit-scrollbar-thumb:hover {
+    background: #285176;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .contest-registration-page {
+        padding: 20px 12px 34px;
+    }
+
+    .contest-registration-card {
+        padding: 22px 16px;
+
+        border-radius: 15px;
+    }
+
+    .contest-registration-header {
+        flex-direction: column;
+    }
+
+    .contest-registration-header h1 {
+        font-size: 26px;
+    }
+
+    .contest-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contest-countdown {
+        gap: 6px;
+    }
+
+    .countdown-box {
+        min-width: 68px;
+
+        padding: 14px 8px;
+    }
+
+    .countdown-box strong {
+        font-size: 25px;
+    }
+
+    .countdown-separator {
+        font-size: 23px;
+    }
+
+    .contest-action-panel,
+    .contest-lobby {
+        padding: 26px 18px;
+    }
+
+    .contest-account-bar {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .contest-primary-button {
+        width: 100%;
+    }
+}

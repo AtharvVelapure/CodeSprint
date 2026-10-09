@@ -1,0 +1,297 @@
+/* =====================================================
+   CANDIDATE ENTRY - CODESPRINT DARK THEME
+===================================================== */
+
+.candidate-entry-page {
+    min-height: 100vh;
+    background-color: #030914 !important;
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.candidate-entry-container {
+    width: 100%;
+    max-width: 680px;
+}
+
+/* Brand */
+.candidate-entry-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #f8fafc;
+}
+
+.candidate-entry-brand-mark {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+/* Card */
+.candidate-entry-card {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* Company Header */
+.candidate-company-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    border-bottom: 1px solid #142238;
+    background: #091322;
+}
+
+.candidate-company-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.candidate-company-section h1 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.candidate-company-section p {
+    margin: 3px 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* Position */
+.candidate-position {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    background: #050d18;
+    border-bottom: 1px solid #142238;
+}
+
+.candidate-label {
+    color: #64748b;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.candidate-position strong {
+    color: #38bdf8;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* Assessment Details */
+.candidate-assessment-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #142238;
+    gap: 1px;
+    border-bottom: 1px solid #142238;
+}
+
+.candidate-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #081120;
+    padding: 16px 20px;
+}
+
+.candidate-detail-icon {
+    font-size: 18px;
+}
+
+.candidate-detail span {
+    color: #64748b;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.candidate-detail strong {
+    color: #f8fafc;
+    font-size: 13.5px;
+}
+
+/* Form Section */
+.candidate-form-section {
+    padding: 24px 28px;
+}
+
+.candidate-form-heading h2 {
+    margin: 0 0 3px 0;
+    color: #f8fafc;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.candidate-form-heading p {
+    margin: 0 0 20px 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.candidate-input-group {
+    margin-bottom: 16px;
+}
+
+.candidate-input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #e2e8f0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.candidate-input-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 14px;
+    border: 1px solid #1e2e46;
+    border-radius: 8px;
+    outline: none;
+    font-size: 13.5px;
+    color: #f8fafc;
+    background: #040913;
+}
+
+.candidate-input-group input:focus {
+    border-color: #3b82f6;
+}
+
+.candidate-input-group input:disabled {
+    background: #081120;
+    color: #64748b;
+}
+
+.candidate-account-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 20px;
+    padding: 10px 14px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 8px;
+    color: #93c5fd;
+    font-size: 12.5px;
+}
+
+.candidate-continue-button {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.candidate-continue-button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.candidate-entry-footer {
+    margin: 18px 0 0;
+    text-align: center;
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* =========================================================
+   ASSESSMENT CANDIDATE ENTRY — ACTUAL CODESPRINT LOGO
+   UI-only override. No JSX or functionality changes.
+========================================================= */
+
+/* Main candidate-entry header */
+.candidate-entry-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.candidate-entry-brand > span {
+    display: none;
+}
+
+.candidate-entry-brand-mark {
+    width: 190px;
+    height: 58px;
+    flex: 0 0 190px;
+    padding: 0;
+    border: none !important;
+    border-radius: 0 !important;
+    background:
+        url("/codesprint-logo.png")
+        center center / contain
+        no-repeat !important;
+    box-shadow: none !important;
+    color: transparent !important;
+    font-size: 0 !important;
+}
+
+/* Error-state branding */
+.candidate-entry-logo {
+    width: 190px;
+    height: 58px;
+    margin: 0 auto 25px;
+    background:
+        url("/codesprint-logo.png")
+        center center / contain
+        no-repeat;
+    color: transparent !important;
+    font-size: 0 !important;
+}
+
+/* Keep the real logo balanced on smaller screens */
+@media (max-width: 520px) {
+    .candidate-entry-brand-mark,
+    .candidate-entry-logo {
+        width: 160px;
+        height: 50px;
+        flex-basis: 160px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .candidate-assessment-details {
+        grid-template-columns: 1fr;
+    }
+}

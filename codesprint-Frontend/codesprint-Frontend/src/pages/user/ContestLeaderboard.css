@@ -1,0 +1,979 @@
+
+/* =========================================================
+   CODESPRINT — CONTEST LEADERBOARD
+   DARK DEVELOPER PLATFORM THEME
+   UI ONLY — FUNCTIONALITY UNCHANGED
+========================================================= */
+
+:root {
+    --cs-blue: #0077f6;
+    --cs-cyan: #00c6ff;
+    --cs-orange: #ff5722;
+    --cs-amber: #ff9800;
+
+    --cs-blue-gradient: linear-gradient(
+        135deg,
+        #0077f6 0%,
+        #00c6ff 100%
+    );
+
+    --cs-orange-gradient: linear-gradient(
+        135deg,
+        #ff5722 0%,
+        #ff9800 100%
+    );
+
+    --cl-bg: #030913;
+    --cl-card: #081120;
+    --cl-card-alt: #0a1628;
+    --cl-panel: #0b1729;
+    --cl-border: #172741;
+    --cl-border-light: #203655;
+    --cl-divider: #172a42;
+
+    --cl-text: #f3f8ff;
+    --cl-text-secondary: #8ea3bd;
+    --cl-text-muted: #627791;
+
+    --cl-green: #24d39b;
+    --cl-yellow: #ffbc2f;
+    --cl-red: #ff6868;
+
+    --cl-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.01);
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.contest-leaderboard-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 30px 34px 50px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 88% 0%,
+            rgba(0, 119, 246, 0.075),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 8% 72%,
+            rgba(0, 198, 255, 0.035),
+            transparent 28%
+        ),
+        var(--cl-bg);
+
+    color: var(--cl-text);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Inter",
+        sans-serif;
+}
+
+.contest-leaderboard-page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.18;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.012) 1px,
+            transparent 1px
+        );
+
+    background-size: 32px 32px;
+}
+
+.contest-leaderboard-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.contest-leaderboard-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 24px;
+}
+
+.contest-leaderboard-back {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-height: 39px;
+
+    border: 1px solid rgba(0, 198, 255, 0.15);
+
+    background: #0a1728;
+
+    border-radius: 9px;
+
+    padding: 0 13px;
+
+    margin-bottom: 17px;
+
+    cursor: pointer;
+
+    color: #c8d9e8;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.contest-leaderboard-back:hover {
+    background: #0d1d31;
+
+    border-color: #0077f6;
+
+    color: #66d7ff;
+
+    transform: translateX(-2px);
+}
+
+.contest-leaderboard-back::before {
+    content: "←";
+
+    color: #49cfff;
+
+    font-size: 14px;
+}
+
+.contest-leaderboard-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 7px;
+
+    font-size: 10.5px;
+
+    font-weight: 850;
+
+    letter-spacing: 0.16em;
+
+    color: #53d2ff;
+}
+
+.contest-leaderboard-eyebrow::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--cs-cyan);
+
+    box-shadow:
+        0 0 8px rgba(0, 198, 255, 0.72);
+}
+
+.contest-leaderboard-header h1 {
+    margin: 0 0 8px;
+
+    font-size: 30px;
+
+    line-height: 1.12;
+
+    font-weight: 850;
+
+    letter-spacing: -0.035em;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            110deg,
+            #ffffff 14%,
+            #9de1ff 61%,
+            #ff8c67 100%
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+.contest-leaderboard-header p {
+    margin: 0;
+
+    color: var(--cl-text-secondary);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.contest-leaderboard-toolbar p {
+    margin: 0;
+
+    color: var(--cl-text-secondary);
+}
+
+/* =========================================================
+   REFRESH
+========================================================= */
+
+.contest-leaderboard-refresh {
+    min-height: 41px;
+
+    border: 1px solid rgba(0, 198, 255, 0.17);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 119, 246, 0.92),
+            rgba(0, 198, 255, 0.84)
+        );
+
+    border-radius: 10px;
+
+    padding: 0 16px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 119, 246, 0.19);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.contest-leaderboard-refresh:hover {
+    transform: translateY(-1px);
+
+    border-color: rgba(0, 198, 255, 0.38);
+
+    box-shadow:
+        0 11px 25px rgba(0, 119, 246, 0.27);
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.contest-leaderboard-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 22px;
+}
+
+.contest-leaderboard-summary-card {
+    position: relative;
+
+    padding: 20px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #081526,
+            #07111f
+        );
+
+    border: 1px solid var(--cl-border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--cl-shadow);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contest-leaderboard-summary-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 3px;
+
+    background: var(--cs-blue-gradient);
+}
+
+.contest-leaderboard-summary-card:nth-child(2)::before {
+    background:
+        linear-gradient(
+            90deg,
+            #5c65ff,
+            #8b85ff
+        );
+}
+
+.contest-leaderboard-summary-card:nth-child(3)::before {
+    background:
+        linear-gradient(
+            90deg,
+            #ff9800,
+            #ff5722
+        );
+}
+
+.contest-leaderboard-summary-card:hover {
+    transform: translateY(-2px);
+
+    border-color: var(--cl-border-light);
+
+    box-shadow:
+        0 15px 30px rgba(0, 0, 0, 0.29),
+        0 0 20px rgba(0, 119, 246, 0.045);
+}
+
+.contest-leaderboard-summary-card span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--cl-text-secondary);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+}
+
+.contest-leaderboard-summary-card strong {
+    font-size: 25px;
+
+    line-height: 1;
+
+    color: #f5faff;
+
+    font-weight: 850;
+}
+
+/* =========================================================
+   MAIN LEADERBOARD CARD
+========================================================= */
+
+.contest-leaderboard-card {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #081526,
+            #07111f
+        );
+
+    border: 1px solid var(--cl-border);
+
+    border-radius: 16px;
+
+    box-shadow: var(--cl-shadow);
+}
+
+.contest-leaderboard-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 76px;
+    height: 3px;
+
+    background: var(--cs-blue-gradient);
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.contest-leaderboard-toolbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #172a42;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0a1729,
+            #091322
+        );
+}
+
+.contest-leaderboard-toolbar h2 {
+    margin: 0 0 5px;
+
+    color: #f2f8ff;
+
+    font-size: 18px;
+
+    font-weight: 850;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.contest-leaderboard-search {
+    display: flex;
+
+    align-items: center;
+
+    min-width: 260px;
+
+    height: 39px;
+
+    padding: 0 12px;
+
+    border: 1px solid #1b2e47;
+
+    border-radius: 9px;
+
+    background: #07111f;
+
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+.contest-leaderboard-search:focus-within {
+    border-color: #00c6ff;
+
+    background: #091524;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 198, 255, 0.075);
+}
+
+.contest-leaderboard-search::before {
+    content: "⌕";
+
+    color: #4ccfff;
+
+    font-size: 17px;
+}
+
+.contest-leaderboard-search input {
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    padding: 0 8px;
+
+    background: transparent;
+
+    color: #ecf6ff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+}
+
+.contest-leaderboard-search input::placeholder {
+    color: #5d738d;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.contest-leaderboard-table-wrap {
+    overflow-x: auto;
+}
+
+.contest-leaderboard-table {
+    width: 100%;
+
+    min-width: 820px;
+
+    border-collapse: collapse;
+
+    background: transparent;
+}
+
+.contest-leaderboard-table th {
+    padding: 13px 20px;
+
+    text-align: left;
+
+    background: #0a1729;
+
+    border-bottom: 1px solid #1a2d45;
+
+    color: #7187a2;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.07em;
+
+    font-weight: 850;
+
+    white-space: nowrap;
+}
+
+.contest-leaderboard-table td {
+    padding: 15px 20px;
+
+    background: #081120;
+
+    border-bottom: 1px solid #122238;
+
+    color: #91a6bd;
+
+    font-size: 12px;
+}
+
+.contest-leaderboard-table tbody tr {
+    transition:
+        background 0.16s ease,
+        box-shadow 0.16s ease;
+}
+
+.contest-leaderboard-table tbody tr:hover td {
+    background: #0b182b;
+}
+
+.contest-leaderboard-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* =========================================================
+   RANK
+========================================================= */
+
+.contest-rank {
+    font-weight: 850;
+
+    color: #9eb2c7;
+}
+
+.contest-rank-1,
+.contest-rank-2,
+.contest-rank-3 {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 30px;
+    height: 30px;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+}
+
+.contest-rank-1 {
+    background: rgba(255, 190, 52, 0.10);
+
+    border: 1px solid rgba(255, 190, 52, 0.20);
+
+    color: #ffd158;
+}
+
+.contest-rank-2 {
+    background: rgba(203, 213, 225, 0.06);
+
+    border: 1px solid rgba(203, 213, 225, 0.13);
+
+    color: #c8d2dc;
+}
+
+.contest-rank-3 {
+    background: rgba(205, 127, 50, 0.08);
+
+    border: 1px solid rgba(205, 127, 50, 0.16);
+
+    color: #e1a271;
+}
+
+/* =========================================================
+   PARTICIPANT
+========================================================= */
+
+.contest-participant {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.contest-participant-avatar {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(0, 198, 255, 0.13);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #122b4b,
+            #0b2038
+        );
+
+    color: #65d4ff;
+
+    font-weight: 850;
+}
+
+.contest-participant strong,
+.contest-participant span {
+    display: block;
+}
+
+.contest-participant strong {
+    color: #e9f4fc;
+
+    font-size: 12px;
+
+    font-weight: 750;
+}
+
+.contest-participant span {
+    margin-top: 3px;
+
+    color: #70869f;
+
+    font-size: 11px;
+}
+
+/* =========================================================
+   SOLVED / SCORE
+========================================================= */
+
+.contest-solved-value {
+    display: inline-flex;
+
+    min-width: 34px;
+
+    justify-content: center;
+
+    padding: 5px 9px;
+
+    border: 1px solid rgba(36, 211, 155, 0.20);
+
+    border-radius: 999px;
+
+    background: rgba(36, 211, 155, 0.08);
+
+    color: #45dca9;
+
+    font-weight: 850;
+}
+
+.contest-score-value {
+    color: #55d2ff;
+
+    font-size: 16px;
+
+    font-weight: 850;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.contest-leaderboard-loading {
+    min-height: 420px;
+
+    padding: 60px 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    color: #7890a9;
+}
+
+.contest-leaderboard-spinner {
+    width: 34px;
+    height: 34px;
+
+    margin: 0 auto 16px;
+
+    border: 3px solid #1a2e47;
+
+    border-top-color: #0077f6;
+
+    border-right-color: #00c6ff;
+
+    border-radius: 50%;
+
+    animation:
+        contestLeaderboardSpin 0.8s linear infinite;
+}
+
+@keyframes contestLeaderboardSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.contest-leaderboard-empty {
+    min-height: 300px;
+
+    padding: 60px 24px;
+
+    text-align: center;
+
+    color: #7c91a8;
+}
+
+.contest-leaderboard-empty div {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0 auto 14px;
+
+    border: 1px solid rgba(0, 198, 255, 0.12);
+
+    border-radius: 17px;
+
+    background: rgba(0, 119, 246, 0.08);
+
+    color: #60d5ff;
+
+    font-size: 29px;
+}
+
+.contest-leaderboard-empty h3 {
+    margin: 0 0 6px;
+
+    color: #edf6ff;
+
+    font-size: 17px;
+
+    font-weight: 850;
+}
+
+.contest-leaderboard-empty p {
+    margin: 0;
+
+    color: #71869f;
+
+    font-size: 12px;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.contest-leaderboard-error {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 16px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255, 98, 98, 0.20);
+
+    border-radius: 10px;
+
+    background: rgba(255, 98, 98, 0.07);
+
+    color: #ff7474;
+
+    font-size: 12.5px;
+
+    font-weight: 650;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.contest-leaderboard-page *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.contest-leaderboard-page *::-webkit-scrollbar-track {
+    background: #050c17;
+}
+
+.contest-leaderboard-page *::-webkit-scrollbar-thumb {
+    background: #1b314d;
+
+    border-radius: 999px;
+}
+
+.contest-leaderboard-page *::-webkit-scrollbar-thumb:hover {
+    background: #285176;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .contest-leaderboard-page {
+        padding: 24px 20px 40px;
+    }
+
+    .contest-leaderboard-header {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .contest-leaderboard-refresh {
+        width: 100%;
+    }
+
+    .contest-leaderboard-summary {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .contest-leaderboard-toolbar {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .contest-leaderboard-search {
+        width: 100%;
+
+        min-width: 0;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .contest-leaderboard-page {
+        padding: 20px 14px 34px;
+    }
+
+    .contest-leaderboard-header h1 {
+        font-size: 25px;
+    }
+
+    .contest-leaderboard-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .contest-leaderboard-summary-card {
+        padding: 17px;
+    }
+
+    .contest-leaderboard-card {
+        border-radius: 13px;
+    }
+
+    .contest-leaderboard-toolbar {
+        padding: 17px;
+    }
+
+    .contest-leaderboard-table th,
+    .contest-leaderboard-table td {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

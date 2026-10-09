@@ -1,0 +1,905 @@
+/* ============================================================
+   BASE CONTAINER & DARK THEME
+============================================================ */
+
+.admin-certification-page {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #030914 !important;
+    padding: 24px 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #e2e8f0;
+    font-family: inherit;
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.admin-certification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.admin-page-breadcrumb {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+
+.admin-certification-header h1 {
+    margin: 0 0 6px 0;
+    color: #f8fafc;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.admin-certification-header p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.create-certification-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    padding: 10px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    transition: background 0.2s ease;
+}
+
+.create-certification-button:hover {
+    background: #1d4ed8;
+}
+
+.create-certification-button span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+
+/* ============================================================
+   ALERTS
+============================================================ */
+
+.admin-certification-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+}
+
+.admin-certification-alert.success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #86efac;
+}
+
+.admin-certification-alert.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+}
+
+.admin-certification-alert button {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+
+/* ============================================================
+   FORM SECTION
+============================================================ */
+
+.certification-form-section {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.certification-form-header {
+    padding: 20px 24px;
+    background: #091322;
+    border-bottom: 1px solid #142238;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-section-label {
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.certification-form-header h2 {
+    margin: 4px 0 2px 0;
+    color: #f8fafc;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.certification-form-header p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.close-form-button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: #94a3b8;
+    font-size: 20px;
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
+}
+
+.close-form-button:hover {
+    background: #142238;
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   FORM
+============================================================ */
+
+.certification-form {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    color: #e2e8f0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group label span {
+    color: #f87171;
+    margin-left: 4px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background-color: #040913 !important;
+    color: #f8fafc !important;
+    font-family: inherit;
+    font-size: 13.5px;
+    outline: none;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.form-group select {
+    height: 42px;
+    padding-right: 36px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.form-group select option {
+    background-color: #081120;
+    color: #f8fafc;
+    padding: 8px 12px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.5;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #3b82f6 !important;
+    box-shadow:
+        0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.form-group small {
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* ============================================================
+   DISABLED FORM FIELDS
+============================================================ */
+
+.form-group input:disabled,
+.form-group textarea:disabled,
+.form-group select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #07101d !important;
+    color: #64748b !important;
+}
+
+
+/* ============================================================
+   FORM ACTIONS
+============================================================ */
+
+.certification-form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid #142238;
+}
+
+.cancel-form-button,
+.save-certification-button {
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-form-button {
+    border: 1px solid #1e293b;
+    background: #0d1626;
+    color: #cbd5e1;
+}
+
+.cancel-form-button:hover:not(:disabled) {
+    background: #17263c;
+    color: #ffffff;
+}
+
+.save-certification-button {
+    border: none;
+    background: #2563eb;
+    color: #ffffff;
+    min-width: 140px;
+}
+
+.save-certification-button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.cancel-form-button:disabled,
+.save-certification-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   BUTTON SPINNER
+============================================================ */
+
+.button-spinner {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: admin-cert-spin 0.7s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes admin-cert-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ============================================================
+   LIST HEADER
+============================================================ */
+
+.certification-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.certification-list-header h2 {
+    margin: 0 0 2px 0;
+    color: #f8fafc;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.certification-list-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.refresh-certifications-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #1e293b;
+    background: #0d1626;
+    color: #cbd5e1;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.refresh-certifications-button:hover {
+    background: #17263c;
+    border-color: #334155;
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   CARD LIST
+============================================================ */
+
+.certification-admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.admin-certification-card {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.admin-certification-card:hover {
+    border-color: #1e3557;
+}
+
+.admin-certification-card-header {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    border-bottom: 1px solid #142238;
+}
+
+
+/* ============================================================
+   CERTIFICATION TITLE
+============================================================ */
+
+.certification-title-area {
+    display: flex;
+    gap: 14px;
+    min-width: 0;
+}
+
+.certification-card-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.certification-title-area h3 {
+    margin: 0;
+    color: #f8fafc;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.certification-title-area p {
+    margin: 4px 0 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 720px;
+}
+
+
+/* ============================================================
+   STATUS
+============================================================ */
+
+.certification-status {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.certification-status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.status-active {
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.status-active::before {
+    background: #4ade80;
+}
+
+.status-inactive {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.status-inactive::before {
+    background: #f87171;
+}
+
+.status-draft {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.status-draft::before {
+    background: #fbbf24;
+}
+
+
+/* ============================================================
+   INFO GRID
+============================================================ */
+
+.admin-certification-info {
+    padding: 16px 24px;
+    display: grid;
+
+    /*
+     * There are currently 7 information items:
+     * category, difficulty, questions, duration,
+     * passing, retake and max attempts.
+     */
+    grid-template-columns:
+        repeat(7, minmax(0, 1fr));
+
+    gap: 16px;
+    background: #050d18;
+}
+
+.certification-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.certification-info-item span {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.certification-info-item strong {
+    color: #f1f5f9;
+    font-size: 13.5px;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.difficulty-text.easy {
+    color: #4ade80;
+}
+
+.difficulty-text.intermediate {
+    color: #fbbf24;
+}
+
+.difficulty-text.hard {
+    color: #f87171;
+}
+
+
+/* ============================================================
+   ACTION BUTTONS
+============================================================ */
+
+.admin-certification-actions {
+    padding: 14px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-top: 1px solid #142238;
+}
+
+.admin-certification-actions button {
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+
+/* EDIT */
+
+.edit-certification-button {
+    border: 1px solid #1e3a8a;
+    background: rgba(37, 99, 235, 0.12);
+    color: #60a5fa;
+}
+
+.edit-certification-button:hover {
+    background: rgba(37, 99, 235, 0.22);
+}
+
+
+/* MANAGE QUESTIONS */
+
+.manage-questions-button {
+    border: 1px solid #4c1d95;
+    background: rgba(124, 58, 237, 0.12);
+    color: #c084fc;
+}
+
+.manage-questions-button:hover {
+    background: rgba(124, 58, 237, 0.22);
+}
+
+
+/* ============================================================
+   VIEW RESULTS - NEW
+============================================================ */
+
+.view-results-button {
+    border: 1px solid #075985;
+    background: rgba(14, 165, 233, 0.12);
+    color: #38bdf8;
+}
+
+.view-results-button:hover {
+    background: rgba(14, 165, 233, 0.22);
+    border-color: #0284c7;
+    color: #7dd3fc;
+}
+
+
+/* ACTIVATE */
+
+.activate-certification-button {
+    border: 1px solid #14532d;
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+}
+
+.activate-certification-button:hover {
+    background: rgba(34, 197, 94, 0.22);
+}
+
+
+/* DEACTIVATE */
+
+.deactivate-certification-button {
+    border: 1px solid #7c2d12;
+    background: rgba(234, 88, 12, 0.12);
+    color: #fb923c;
+}
+
+.deactivate-certification-button:hover {
+    background: rgba(234, 88, 12, 0.22);
+}
+
+
+/* DELETE */
+
+.delete-certification-button {
+    border: 1px solid #7f1d1d;
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+}
+
+.delete-certification-button:hover {
+    background: rgba(239, 68, 68, 0.22);
+}
+
+
+/* ============================================================
+   EMPTY STATE
+============================================================ */
+
+.certification-empty-state {
+    padding: 60px 24px;
+    background: #081120;
+    border: 1px dashed #1e2e46;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    color: #64748b;
+}
+
+.certification-empty-state h2 {
+    margin: 0 0 6px 0;
+    color: #f8fafc;
+    font-size: 18px;
+}
+
+.certification-empty-state p {
+    margin: 0 0 18px 0;
+    color: #64748b;
+    font-size: 13.5px;
+}
+
+.certification-empty-state button {
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    padding: 10px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.certification-empty-state button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ============================================================
+   LOADING
+============================================================ */
+
+.admin-certification-loading {
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.admin-certification-loading h2 {
+    margin: 14px 0 4px 0;
+    color: #f8fafc;
+    font-size: 18px;
+}
+
+.admin-certification-loading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13.5px;
+}
+
+.admin-certification-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #142238;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: admin-cert-spin 0.8s linear infinite;
+}
+
+
+/* ============================================================
+   RESPONSIVE - LARGE DESKTOP / TABLET
+============================================================ */
+
+@media (max-width: 1250px) {
+
+    .admin-certification-info {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE - TABLET
+============================================================ */
+
+@media (max-width: 1024px) {
+
+    .admin-certification-info {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE - SMALL TABLET
+============================================================ */
+
+@media (max-width: 768px) {
+
+    .admin-certification-page {
+        padding: 16px;
+    }
+
+    .admin-certification-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .create-certification-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .certification-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: auto;
+    }
+
+    .certification-form-actions {
+        grid-column: auto;
+        flex-direction: column-reverse;
+    }
+
+    .cancel-form-button,
+    .save-certification-button {
+        width: 100%;
+    }
+
+    .admin-certification-card-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .admin-certification-info {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .certification-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .refresh-certifications-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE - MOBILE
+============================================================ */
+
+@media (max-width: 500px) {
+
+    .admin-certification-page {
+        padding: 14px;
+    }
+
+    .admin-certification-header h1 {
+        font-size: 22px;
+    }
+
+    .certification-form-section {
+        border-radius: 10px;
+    }
+
+    .certification-form-header {
+        padding: 18px;
+    }
+
+    .certification-form {
+        padding: 18px;
+    }
+
+    .admin-certification-card-header {
+        padding: 18px;
+    }
+
+    .admin-certification-info {
+        padding: 16px 18px;
+        grid-template-columns: 1fr;
+    }
+
+    .admin-certification-actions {
+        padding: 14px 18px;
+        flex-direction: column;
+    }
+
+    .admin-certification-actions button {
+        width: 100%;
+    }
+}

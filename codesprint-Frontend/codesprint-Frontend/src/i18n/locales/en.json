@@ -1,0 +1,42 @@
+{
+    "common": {
+        "user": "User",
+        "logout": "Logout",
+        "login": "Login",
+        "register": "Register",
+        "submit": "Submit",
+        "cancel": "Cancel",
+        "save": "Save",
+        "edit": "Edit",
+        "delete": "Delete",
+        "close": "Close",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "search": "Search",
+        "loading": "Loading",
+        "error": "Error",
+        "success": "Success",
+        "confirm": "Confirm",
+        "yes": "Yes",
+        "no": "No",
+        "userProfile": "User Profile"
+    },
+
+    "navbar": {
+        "searchProblems": "Search Problems",
+        "notifications": "Notifications"
+    },
+
+    "sidebar": {
+        "dashboard": "Dashboard",
+        "problems": "Problems",
+        "submissions": "My Submissions",
+        "leaderboard": "Leaderboard",
+        "contests": "Contests",
+        "certifications": "Certifications",
+        "profile": "Profile",
+        "settings": "Settings",
+        "logout": "Logout"
+    }
+}

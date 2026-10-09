@@ -1,0 +1,561 @@
+/* ==========================================
+   CANVAS & BASE THEME (FIXES THE 2 SIDES)
+========================================== */
+
+.hints-editorials-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    min-height: 100vh !important;
+    padding: 24px 32px !important;
+    box-sizing: border-box !important;
+    background-color: #030914 !important;
+    color: #e2e8f0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    font-family: inherit !important;
+}
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.he-page-header {
+    margin-bottom: 4px !important;
+}
+
+.he-title-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+.he-title-icon {
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 12px !important;
+    background: rgba(56, 189, 248, 0.1) !important;
+    color: #38bdf8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.2) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.he-page-header h1 {
+    margin: 0 0 4px 0 !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    color: #f8fafc !important;
+}
+
+.he-page-header p {
+    margin: 0 !important;
+    color: #94a3b8 !important;
+    font-size: 14px !important;
+}
+
+/* ==========================================
+   CARD PANELS & SELECTOR (FIXES WHITE BOX)
+========================================== */
+
+.he-card,
+.problem-selector-card {
+    background: #081120 !important;
+    border: 1px solid #142238 !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+}
+
+/* ==========================================
+   SECTION HEADER
+========================================== */
+
+.he-section-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.he-section-header h2 {
+    margin: 0 0 4px 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #f8fafc !important;
+}
+
+.he-section-header p {
+    margin: 0 !important;
+    color: #94a3b8 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+}
+
+.section-title-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.section-title-row h2 {
+    margin: 0 !important;
+}
+
+.section-icon {
+    color: #38bdf8 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* ==========================================
+   PROBLEM SELECTOR
+========================================== */
+
+.problem-selector {
+    max-width: 700px !important;
+    background: transparent !important;
+}
+
+.problem-selector label {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+}
+
+.problem-selector select {
+    width: 100% !important;
+    height: 44px !important;
+    padding: 0 38px 0 14px !important;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px !important;
+    background-color: #040913 !important;
+    color: #f8fafc !important;
+    font-size: 13.5px !important;
+    outline: none !important;
+    cursor: pointer !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 14px center !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.problem-selector select:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.problem-selector select option {
+    background-color: #081120 !important;
+    color: #f8fafc !important;
+    padding: 8px 12px !important;
+}
+
+/* ==========================================
+   SELECTED PROBLEM CARD
+========================================== */
+
+.selected-problem-card {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    padding: 18px 24px !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, #081120 100%) !important;
+    border: 1px solid #142238 !important;
+}
+
+.selected-problem-card h2 {
+    margin: 4px 0 0 !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #f8fafc !important;
+}
+
+.problem-id {
+    font-size: 11.5px !important;
+    color: #38bdf8 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.difficulty-badge {
+    padding: 4px 12px !important;
+    border-radius: 999px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+}
+
+.difficulty-badge.easy {
+    background: rgba(34, 197, 94, 0.1) !important;
+    color: #4ade80 !important;
+    border: 1px solid rgba(34, 197, 94, 0.25) !important;
+}
+
+.difficulty-badge.medium {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #fbbf24 !important;
+    border: 1px solid rgba(245, 158, 11, 0.25) !important;
+}
+
+.difficulty-badge.hard {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+}
+
+.count-badge {
+    padding: 4px 10px !important;
+    border-radius: 999px !important;
+    background: rgba(56, 189, 248, 0.1) !important;
+    color: #38bdf8 !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(56, 189, 248, 0.2) !important;
+}
+
+.unlock-badge {
+    padding: 4px 10px !important;
+    border-radius: 999px !important;
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #fbbf24 !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    border: 1px solid rgba(245, 158, 11, 0.25) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* ==========================================
+   HINTS
+========================================== */
+
+.hints-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.hint-card {
+    padding: 16px 18px !important;
+    border: 1px solid #142238 !important;
+    border-radius: 10px !important;
+    background: #040913 !important;
+}
+
+.hint-card-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 10px !important;
+}
+
+.hint-number {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+.hint-card textarea,
+.add-hint-box textarea,
+.editorial-form textarea,
+.editorial-form input {
+    width: 100% !important;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px !important;
+    background-color: #060d19 !important;
+    color: #f8fafc !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.hint-card textarea,
+.add-hint-box textarea {
+    min-height: 80px !important;
+    resize: vertical !important;
+    padding: 12px !important;
+}
+
+.hint-card textarea:focus,
+.add-hint-box textarea:focus,
+.editorial-form textarea:focus,
+.editorial-form input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.add-hint-box {
+    margin-top: 18px !important;
+    padding: 18px !important;
+    border: 1px dashed #1e2e46 !important;
+    border-radius: 10px !important;
+    background: #040913 !important;
+}
+
+.add-hint-box label {
+    display: block !important;
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+}
+
+.add-hint-actions {
+    margin-top: 12px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+}
+
+/* ==========================================
+   EDITORIAL RULE BANNER
+========================================== */
+
+.editorial-rule {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 14px 16px !important;
+    margin-bottom: 22px !important;
+    border-radius: 8px !important;
+    background: rgba(245, 158, 11, 0.1) !important;
+    border: 1px solid rgba(245, 158, 11, 0.25) !important;
+    color: #fde68a !important;
+}
+
+.editorial-rule svg {
+    color: #fbbf24 !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+}
+
+.editorial-rule strong {
+    display: block !important;
+    margin-bottom: 2px !important;
+    font-size: 13.5px !important;
+    color: #fde68a !important;
+}
+
+.editorial-rule p {
+    margin: 0 !important;
+    font-size: 12.5px !important;
+    color: #fef3c7 !important;
+    line-height: 1.5 !important;
+}
+
+/* ==========================================
+   EDITORIAL FORM
+========================================== */
+
+.editorial-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+.form-group {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.form-group label {
+    margin-bottom: 6px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+}
+
+.editorial-form textarea {
+    min-height: 110px !important;
+    resize: vertical !important;
+    padding: 12px !important;
+}
+
+.complexity-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+}
+
+.editorial-form input {
+    height: 42px !important;
+    padding: 0 14px !important;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.danger-outline-button {
+    border-radius: 6px !important;
+    padding: 8px 14px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+    white-space: nowrap !important;
+}
+
+.primary-button {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: #1d4ed8 !important;
+}
+
+.primary-button:disabled {
+    opacity: 0.55 !important;
+    cursor: not-allowed !important;
+}
+
+.secondary-button {
+    background: #0d1626 !important;
+    color: #cbd5e1 !important;
+    border: 1px solid #1e293b !important;
+}
+
+.secondary-button:hover {
+    background: #17263c !important;
+    color: #ffffff !important;
+}
+
+.danger-button {
+    background: rgba(239, 68, 68, 0.12) !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+    color: #f87171 !important;
+}
+
+.danger-button:hover {
+    background: rgba(239, 68, 68, 0.22) !important;
+}
+
+.danger-outline-button {
+    background: transparent !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+.danger-outline-button:hover {
+    background: rgba(239, 68, 68, 0.12) !important;
+}
+
+.hint-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-top: 10px !important;
+}
+
+.editorial-actions {
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid #142238 !important;
+}
+
+/* ==========================================
+   EMPTY / LOADING STATES
+========================================== */
+
+.empty-state {
+    text-align: center !important;
+    padding: 32px 20px !important;
+    border: 1px dashed #1e2e46 !important;
+    border-radius: 10px !important;
+    background: #040913 !important;
+}
+
+.empty-icon {
+    font-size: 28px !important;
+    margin-bottom: 8px !important;
+    color: #64748b !important;
+}
+
+.empty-state h3 {
+    margin: 0 0 4px !important;
+    font-size: 14.5px !important;
+    color: #f8fafc !important;
+}
+
+.empty-state p {
+    margin: 0 !important;
+    color: #64748b !important;
+    font-size: 12.5px !important;
+}
+
+.he-loading {
+    padding: 35px !important;
+    text-align: center !important;
+    color: #94a3b8 !important;
+    background: #081120 !important;
+    border-radius: 12px !important;
+    border: 1px solid #142238 !important;
+    font-size: 13.5px !important;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 768px) {
+    .hints-editorials-page {
+        padding: 16px !important;
+    }
+
+    .he-section-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+
+    .selected-problem-card {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+
+    .complexity-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .editorial-actions {
+        flex-direction: column-reverse !important;
+    }
+
+    .editorial-actions button {
+        width: 100% !important;
+    }
+}

@@ -1,0 +1,643 @@
+/* =====================================================
+   ASSESSMENT INSTRUCTIONS — CODESPRINT DARK THEME
+   UI-only replacement.
+   Existing class names, layout, responsive behavior and
+   functionality are preserved.
+===================================================== */
+
+.assessment-instructions-page {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 88% 0%, rgba(0, 119, 246, 0.08), transparent 30%),
+        radial-gradient(circle at 5% 42%, rgba(0, 198, 255, 0.035), transparent 26%),
+        #030913 !important;
+    padding: 30px 20px 50px;
+    color: #e6f4ff;
+    box-sizing: border-box;
+}
+
+.assessment-instructions-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.instructions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 42px;
+}
+
+.instructions-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #eef8ff;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.instructions-brand-mark {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #0077f6, #00c6ff);
+    color: white;
+    font-size: 20px;
+    border: 1px solid rgba(0, 198, 255, 0.20);
+    box-shadow:
+        0 8px 20px rgba(0, 119, 246, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.instructions-secure-badge {
+    padding: 9px 14px;
+    border-radius: 20px;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.22);
+    color: #62df89;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.instructions-title-section {
+    margin-bottom: 25px;
+}
+
+.instructions-step {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #39c7ff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.instructions-title-section h1 {
+    margin: 0;
+    color: #f4fbff;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.instructions-title-section p {
+    margin: 9px 0 0;
+    color: #8ea6bb;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.instructions-summary-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-bottom: 22px;
+    overflow: hidden;
+    border: 1px solid #182d47;
+    border-radius: 13px;
+    background: #182d47;
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.instructions-summary-card > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px;
+    background:
+        linear-gradient(145deg, #0a1728, #07111f);
+}
+
+.instructions-summary-card span {
+    color: #7891a8;
+    font-size: 12px;
+}
+
+.instructions-summary-card strong {
+    color: #eef8ff;
+    font-size: 14px;
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.instructions-card {
+    position: relative;
+    margin-bottom: 22px;
+    padding: 26px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(0, 119, 246, 0.065), transparent 35%),
+        linear-gradient(145deg, #0a1728, #07111f);
+    border: 1px solid #182d47;
+    border-radius: 14px;
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+}
+
+.instructions-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90px;
+    height: 3px;
+    border-radius: 0 0 6px 0;
+    background: linear-gradient(90deg, #0077f6, #00c6ff);
+}
+
+.instructions-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.instructions-heading-icon {
+    width: 45px;
+    height: 45px;
+    flex: 0 0 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: rgba(0, 119, 246, 0.09);
+    border: 1px solid rgba(0, 198, 255, 0.14);
+    color: #51d0ff;
+    font-size: 21px;
+}
+
+.instructions-card-heading h2 {
+    margin: 0;
+    color: #edf8ff;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.instructions-card-heading p {
+    margin: 4px 0 0;
+    color: #8098ae;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* =====================================================
+   INSTRUCTIONS LIST
+===================================================== */
+
+.instructions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.instruction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.instruction-item > span {
+    min-width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 119, 246, 0.09);
+    border: 1px solid rgba(0, 198, 255, 0.13);
+    color: #4fcfff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.instruction-item p {
+    margin: 3px 0 0;
+    color: #a7bdcf;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   HOST INSTRUCTIONS
+===================================================== */
+
+.host-instructions {
+    margin-top: 23px;
+    padding: 17px;
+    border-radius: 9px;
+    background: rgba(255, 152, 0, 0.055);
+    border: 1px solid rgba(255, 152, 0, 0.20);
+}
+
+.host-instructions h3 {
+    margin: 0 0 7px;
+    color: #ffbf55;
+    font-size: 14px;
+}
+
+.host-instructions p {
+    margin: 0;
+    color: #c8a86b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   PERMISSIONS
+===================================================== */
+
+.permission-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #172b41;
+}
+
+.permission-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.permission-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.permission-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #0d1a2c;
+    border: 1px solid #20364f;
+    color: #56cffd;
+    font-size: 19px;
+}
+
+.permission-info > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.permission-info strong {
+    color: #eaf6ff;
+    font-size: 14px;
+}
+
+.permission-info span {
+    color: #7189a0;
+    font-size: 12px;
+}
+
+.permission-button {
+    padding: 9px 15px;
+    border: 1px solid #008df0;
+    border-radius: 8px;
+    background: #0d1928;
+    color: #53ceff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.permission-button:hover {
+    background: #12243a;
+    border-color: #00a8ff;
+    transform: translateY(-1px);
+}
+
+.permission-granted {
+    padding: 7px 11px;
+    border-radius: 7px;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.18);
+    color: #62df89;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.permission-not-required {
+    padding: 7px 11px;
+    border-radius: 7px;
+    background: #0d1928;
+    border: 1px solid #25394f;
+    color: #879db1;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.instructions-error-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 13px 15px;
+    border: 1px solid rgba(255, 87, 34, 0.26);
+    border-radius: 9px;
+    background: rgba(255, 87, 34, 0.075);
+    color: #ff9f87;
+    font-size: 13px;
+}
+
+/* =====================================================
+   START SECTION
+===================================================== */
+
+.instructions-start-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 22px 24px;
+    border-radius: 13px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(0, 198, 255, 0.08), transparent 38%),
+        linear-gradient(135deg, #0b1a2e, #071321);
+    border: 1px solid #1e4666;
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.instructions-start-section strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #edf8ff;
+    font-size: 16px;
+}
+
+.instructions-start-section p {
+    margin: 0;
+    color: #8098ae;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.start-assessment-button {
+    padding: 13px 22px;
+    border: 1px solid #008df0;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #0077f6, #00a9ff);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    box-shadow: 0 8px 20px rgba(0, 119, 246, 0.18);
+}
+
+.start-assessment-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #0088ff, #08b5ff);
+    box-shadow: 0 11px 24px rgba(0, 119, 246, 0.28);
+}
+
+.start-assessment-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.instructions-loading {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: #8098ae;
+}
+
+.instructions-loading p {
+    color: #7189a0;
+    font-size: 14px;
+}
+
+.instructions-spinner {
+    width: 38px;
+    height: 38px;
+    border: 4px solid #172a40;
+    border-top-color: #0077f6;
+    border-right-color: #00c6ff;
+    border-radius: 50%;
+    animation: instructions-spin 0.8s linear infinite;
+}
+
+@keyframes instructions-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =====================================================
+   ERROR CARD
+===================================================== */
+
+.instructions-error-card {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 40px;
+    background:
+        linear-gradient(145deg, #0a1728, #07111f);
+    border: 1px solid #182d47;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.instructions-error-card .instructions-brand {
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.instructions-error-icon {
+    margin-bottom: 12px;
+    font-size: 40px;
+}
+
+.instructions-error-card h1 {
+    margin: 0 0 10px;
+    color: #eef8ff;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.instructions-error-card p {
+    margin: 0 0 24px;
+    color: #8198ad;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.instructions-secondary-button {
+    padding: 11px 20px;
+    border: 1px solid #008df0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #0077f6, #0067d8);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(0, 119, 246, 0.16);
+}
+
+.instructions-secondary-button:hover {
+    background: linear-gradient(135deg, #0088ff, #0072e8);
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.instructions-footer {
+    margin: 25px 0 0;
+    text-align: center;
+    color: #637b91;
+    font-size: 12px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 750px) {
+    .assessment-instructions-page {
+        padding: 22px 14px 40px;
+    }
+
+    .instructions-header {
+        margin-bottom: 30px;
+    }
+
+    .instructions-title-section h1 {
+        font-size: 26px;
+    }
+
+    .instructions-summary-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .instructions-start-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .start-assessment-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .instructions-secure-badge {
+        display: none;
+    }
+
+    .instructions-summary-card {
+        grid-template-columns: 1fr;
+    }
+
+    .instructions-card {
+        padding: 20px;
+    }
+
+    .permission-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .permission-button,
+    .permission-granted,
+    .permission-not-required {
+        margin-left: 55px;
+    }
+}
+
+
+/* =====================================================
+   CODESPRINT BRAND LOGO
+   Use the actual website logo instead of the text/C mark.
+   No JSX or functionality changes required.
+===================================================== */
+
+.instructions-brand {
+    gap: 0;
+    width: fit-content;
+}
+
+.instructions-brand > span {
+    display: none;
+}
+
+.instructions-brand-mark {
+    width: 178px;
+    height: 54px;
+    flex: 0 0 178px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background:
+        url("/codesprint-logo.png")
+        center / contain
+        no-repeat;
+    box-shadow: none;
+    font-size: 0;
+    color: transparent;
+}
+
+/* Keep the real logo visually balanced on small screens */
+@media (max-width: 480px) {
+    .instructions-brand-mark {
+        width: 155px;
+        height: 48px;
+        flex-basis: 155px;
+    }
+}

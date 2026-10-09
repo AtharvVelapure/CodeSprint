@@ -1,0 +1,7 @@
+target/
+.env
+*.log
+uploads/assessment-verification/*
+!uploads/assessment-verification/.gitkeep
+.idea/
+.vscode/

@@ -1,0 +1,440 @@
+/* =========================================================
+   CODESPRINT USER SIDEBAR
+   Same Brand Design as Admin Dashboard
+========================================================= */
+
+.user-sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 240px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #0b132b;
+
+    border-right: 1px solid #1c2541;
+
+    z-index: 1000;
+
+    overflow: hidden;
+
+    box-shadow:
+        4px 0 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   TOP ACCENT LINE
+========================================================= */
+
+.user-sidebar::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0077f6 0%,
+            #00c6ff 45%,
+            #ff5722 85%,
+            #ff9800 100%
+        );
+}
+
+
+/* =========================================================
+   LOGO AREA
+========================================================= */
+
+.user-sidebar-logo {
+
+    height: 70px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid #1c2541;
+
+    cursor: pointer;
+
+    background: #0b132b;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.user-sidebar-logo:hover {
+
+    background: #101936;
+}
+
+
+/* =========================================================
+   CODESPRINT LOGO
+========================================================= */
+
+.user-sidebar-logo img {
+
+    width: 155px;
+
+    height: auto;
+
+    max-height: 48px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   MAIN MENU
+========================================================= */
+
+.user-sidebar-menu {
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 24px 15px 15px;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.user-sidebar-menu::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+.user-sidebar-menu::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+.user-sidebar-menu::-webkit-scrollbar-thumb {
+
+    background: #1c2541;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   SIDEBAR ITEM
+========================================================= */
+
+.user-sidebar-item {
+
+    width: 100%;
+
+    min-height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 6px;
+
+    padding: 0 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #8c98a9;
+
+    font-family: inherit;
+
+    font-size: 13.5px;
+
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.user-sidebar-icon {
+
+    width: 22px;
+
+    min-width: 22px;
+
+    height: 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #8c98a9;
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.user-sidebar-item:hover {
+
+    background: #151e3f;
+
+    color: #ffffff;
+
+    transform: translateX(3px);
+}
+
+
+.user-sidebar-item:hover .user-sidebar-icon {
+
+    color: #00c6ff;
+}
+
+
+/* =========================================================
+   ACTIVE ITEM
+========================================================= */
+
+.user-sidebar-item.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077f6 0%,
+            #00c6ff 100%
+        );
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 6px 18px rgba(0, 119, 246, 0.35);
+}
+
+
+.user-sidebar-item.active .user-sidebar-icon {
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   BOTTOM SECTION
+========================================================= */
+
+.user-sidebar-bottom {
+
+    flex-shrink: 0;
+
+    padding: 12px 15px 18px;
+
+    border-top: 1px solid #1c2541;
+
+    background: #0b132b;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.user-logout-item {
+
+    color: #f87171;
+
+    margin-bottom: 0;
+}
+
+
+.user-logout-item .user-sidebar-icon {
+
+    color: #f87171;
+}
+
+
+.user-logout-item:hover {
+
+    background: #201319;
+
+    color: #ef4444;
+
+    transform: translateX(3px);
+}
+
+
+.user-logout-item:hover .user-sidebar-icon {
+
+    color: #ef4444;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .user-sidebar {
+
+        width: 210px;
+    }
+
+
+    .user-sidebar-logo img {
+
+        width: 140px;
+    }
+
+
+    .user-sidebar-menu {
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    .user-sidebar-bottom {
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    .user-sidebar-item {
+
+        font-size: 13px;
+
+        padding: 0 12px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .user-sidebar {
+
+        width: 70px;
+    }
+
+
+    .user-sidebar-logo {
+
+        height: 70px;
+
+        padding: 0;
+
+        justify-content: center;
+    }
+
+
+    .user-sidebar-logo img {
+
+        width: 48px;
+
+        height: 42px;
+
+        object-fit: contain;
+    }
+
+
+    .user-sidebar-menu {
+
+        padding: 18px 8px 10px;
+    }
+
+
+    .user-sidebar-item {
+
+        justify-content: center;
+
+        gap: 0;
+
+        padding: 0;
+
+        min-height: 44px;
+    }
+
+
+    .user-sidebar-item > span:last-child {
+
+        display: none;
+    }
+
+
+    .user-sidebar-icon {
+
+        width: 22px;
+    }
+
+
+    .user-sidebar-bottom {
+
+        padding: 10px 8px 14px;
+    }
+}

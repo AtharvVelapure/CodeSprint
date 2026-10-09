@@ -1,0 +1,750 @@
+/* ============================================================
+   CANVAS & BASE THEME
+============================================================ */
+
+.admin-certification-questions-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px 32px;
+    box-sizing: border-box;
+    background-color: #030914 !important;
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: inherit;
+}
+
+.admin-certification-questions-page * {
+    box-sizing: border-box;
+}
+
+/* Page Header */
+.admin-cert-question-page-header {
+    margin-bottom: 4px;
+}
+
+.admin-cert-back-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 8px;
+    color: #38bdf8;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease;
+}
+
+.admin-cert-back-button:hover {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+.admin-cert-question-page-header h1 {
+    margin: 0 0 6px 0;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #f8fafc;
+}
+
+.admin-cert-question-page-header p {
+    margin: 0;
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+/* Alerts */
+.admin-cert-error,
+.admin-cert-success {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 500;
+}
+
+.admin-cert-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #fca5a5;
+}
+
+.admin-cert-success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #86efac;
+}
+
+.admin-cert-error button,
+.admin-cert-success button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* Metric Cards Grid */
+.admin-cert-question-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.admin-cert-summary-card {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: border-color 0.2s;
+}
+
+.admin-cert-summary-card:hover {
+    border-color: #1e3557;
+}
+
+.admin-cert-summary-card span {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.admin-cert-summary-card strong {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.admin-cert-summary-card strong.summary-breakdown {
+    font-size: 15px;
+    color: #cbd5e1;
+    white-space: nowrap;
+    margin-top: 4px;
+}
+
+.text-success { color: #4ade80 !important; }
+.text-warning { color: #fbbf24 !important; }
+
+/* Form Container Card */
+.admin-cert-question-form-card {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.admin-cert-question-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #142238;
+    margin-bottom: 18px;
+}
+
+.admin-cert-question-form-header h2 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.admin-cert-question-form-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+/* Radio Tiles */
+.section-subtitle {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 10px;
+}
+
+.admin-cert-question-type-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.admin-cert-question-type-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid #1e2e46;
+    border-radius: 8px;
+    background: #040913;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.admin-cert-question-type-option:hover {
+    border-color: #334155;
+    background: #070e1a;
+}
+
+.admin-cert-question-type-option.active {
+    border-color: #3b82f6;
+    background: rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 1px #3b82f6;
+}
+
+.admin-cert-question-type-option input[type="radio"] {
+    margin-top: 3px;
+    accent-color: #3b82f6;
+}
+
+.type-option-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.type-option-content strong {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 2px;
+}
+
+.type-option-content span {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+/* Form Fields */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+.admin-cert-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-cert-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.admin-cert-form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 6px;
+}
+
+.admin-cert-form-group input,
+.admin-cert-form-group select,
+.admin-cert-form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px;
+    font-size: 13.5px;
+    color: #f8fafc !important;
+    background-color: #040913 !important;
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+}
+
+.admin-cert-form-group select {
+    height: 42px;
+    padding-right: 36px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.admin-cert-form-group select option {
+    background-color: #081120;
+    color: #f8fafc;
+    padding: 8px 12px;
+}
+
+.admin-cert-form-group input:focus,
+.admin-cert-form-group select:focus,
+.admin-cert-form-group textarea:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.admin-cert-form-group small {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Custom Problem Box */
+.admin-cert-custom-problem-section {
+    background: #050d18;
+    border: 1px solid #142238;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.admin-cert-custom-problem-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.admin-cert-custom-problem-header h3 {
+    margin: 0 0 2px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.admin-cert-custom-problem-header p {
+    margin: 0;
+    font-size: 12.5px;
+    color: #94a3b8;
+}
+
+/* Buttons */
+.admin-cert-question-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    border-top: 1px solid #142238;
+    padding-top: 16px;
+}
+
+.admin-cert-primary-button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.admin-cert-primary-button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.admin-cert-primary-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.admin-cert-secondary-button {
+    background: #0d1626;
+    color: #cbd5e1;
+    border: 1px solid #1e293b;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.admin-cert-secondary-button:hover {
+    background: #17263c;
+    color: #ffffff;
+}
+
+/* Success Callout */
+.admin-cert-custom-created {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    padding: 14px 18px;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    border-radius: 8px;
+}
+
+.admin-cert-custom-created strong {
+    display: block;
+    color: #93c5fd;
+    font-size: 13.5px;
+}
+
+.admin-cert-custom-created p {
+    margin: 2px 0 0 0;
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
+.admin-cert-custom-created span {
+    font-size: 12px;
+    color: #38bdf8;
+}
+
+.manage-test-case-button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Questions Table Card */
+.admin-certification-questions-table-card {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.admin-certification-questions-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid #142238;
+}
+
+.admin-certification-questions-table-header h2 {
+    margin: 0 0 2px 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.admin-certification-questions-table-header p {
+    margin: 0;
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.admin-cert-refresh-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0d1626;
+    border: 1px solid #1e293b;
+    color: #cbd5e1;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.admin-cert-refresh-button:hover {
+    background: #17263c;
+    color: #ffffff;
+}
+
+/* Table Styling */
+.admin-certification-questions-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-certification-questions-table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.admin-certification-questions-table-wrapper th {
+    background: #070e1a;
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    border-bottom: 1px solid #142238;
+}
+
+.admin-certification-questions-table-wrapper td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #0e1a2c;
+    font-size: 13px;
+    color: #cbd5e1;
+    vertical-align: middle;
+}
+
+.admin-certification-questions-table-wrapper tr:last-child td {
+    border-bottom: none;
+}
+
+/* Overriding white row hover */
+.admin-certification-questions-table-wrapper tr {
+    transition: background-color 0.15s ease;
+}
+
+.admin-certification-questions-table-wrapper tr:hover,
+.admin-certification-questions-table-wrapper tr:hover td {
+    background-color: #0b1a2e !important;
+}
+
+.admin-certification-questions-table-wrapper tr:hover td {
+    color: #f1f5f9;
+}
+
+.question-order-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(37, 99, 235, 0.15);
+    color: #60a5fa;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 50%;
+}
+
+.cert-problem-cell strong {
+    display: block;
+    font-size: 13.5px;
+    color: #f1f5f9;
+}
+
+.cert-problem-cell small {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.problem-source-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.problem-source-badge.existing {
+    background: #0f1c30;
+    color: #94a3b8;
+    border: 1px solid #1e2e46;
+}
+
+.problem-source-badge.custom {
+    background: rgba(124, 58, 237, 0.15);
+    color: #c084fc;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.difficulty-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.difficulty-badge.easy {
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.difficulty-badge.medium {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.difficulty-badge.hard {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* Action Buttons */
+.cert-question-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.admin-cert-action-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+}
+
+.admin-cert-action-btn.edit {
+    background: #0d1626;
+    border-color: #1e293b;
+    color: #cbd5e1;
+}
+
+.admin-cert-action-btn.edit:hover {
+    background: #17263c;
+    color: #ffffff;
+}
+
+.admin-cert-action-btn.delete {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+.admin-cert-action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.admin-cert-action-btn.test-case {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: rgba(124, 58, 237, 0.3);
+    color: #c084fc;
+}
+
+.admin-cert-action-btn.test-case:hover {
+    background: rgba(124, 58, 237, 0.25);
+}
+
+/* Information Footnote */
+.admin-cert-information-box {
+    background: #081120;
+    border: 1px solid #142238;
+    border-radius: 12px;
+    padding: 20px 24px;
+}
+
+.admin-cert-information-box h3 {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    color: #f8fafc;
+}
+
+.admin-cert-information-box ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.admin-cert-information-box code {
+    background: #040913;
+    border: 1px solid #142238;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #38bdf8;
+}
+
+/* Empty State & Loader */
+.admin-cert-empty-state {
+    text-align: center;
+    padding: 48px 24px;
+}
+
+.admin-cert-empty-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #64748b;
+}
+
+.admin-cert-empty-state h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    color: #f8fafc;
+}
+
+.admin-cert-empty-state p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.admin-cert-loading {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.admin-cert-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #142238;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: cert-spin 0.8s linear infinite;
+    margin: 0 auto 12px;
+}
+
+@keyframes cert-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .admin-cert-question-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .admin-certification-questions-page {
+        padding: 16px;
+    }
+    .admin-cert-question-summary {
+        grid-template-columns: 1fr;
+    }
+    .admin-cert-question-type-options {
+        grid-template-columns: 1fr;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .admin-cert-question-form-actions {
+        flex-direction: column-reverse;
+    }
+    .admin-cert-primary-button,
+    .admin-cert-secondary-button {
+        width: 100%;
+    }
+    .admin-cert-custom-created {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .manage-test-case-button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,419 @@
+/* =========================================================
+   ASSESSMENT PROBLEM SELECTION - CODESPRINT DARK THEME
+========================================================= */
+
+.assessment-problem-page {
+  padding: 24px 32px;
+  background-color: #030914 !important;
+  min-height: 100vh;
+  color: #e2e8f0;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.assessment-problem-page * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.assessment-problem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #38bdf8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s ease;
+}
+
+.back-button:hover {
+  transform: translateX(-3px);
+  color: #60a5fa;
+}
+
+.header-left h1 {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+}
+
+.assessment-info-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.info-chip {
+  font-size: 12.5px;
+  color: #94a3b8;
+  background: #081120;
+  border: 1px solid #142238;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.info-chip strong {
+  color: #f8fafc;
+  margin-right: 4px;
+}
+
+.status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.status-pill.published {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.status-pill.draft {
+  background: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.status-pill.live {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.selected-count-badge {
+  background: #081120;
+  border: 1px solid #142238;
+  border-radius: 10px;
+  padding: 10px 16px;
+  text-align: right;
+  min-width: 130px;
+}
+
+.count-label {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.count-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: #38bdf8;
+  margin-top: 2px;
+}
+
+/* Layout */
+.assessment-problem-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.available-problems-section,
+.selected-problems-section {
+  background: #081120;
+  border: 1px solid #142238;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.section-heading p {
+  margin: 2px 0 0 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.problem-count-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  background: #040913;
+  color: #94a3b8;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid #1e2e46;
+}
+
+/* Filters */
+.problem-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #64748b;
+}
+
+.filter-search-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 14px 0 36px;
+  border: 1px solid #1e2e46;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  background: #040913;
+  color: #f8fafc;
+  transition: border-color 0.15s ease;
+}
+
+.filter-search-input:focus {
+  border-color: #3b82f6;
+}
+
+.filter-select {
+  height: 40px;
+  padding: 0 32px 0 12px;
+  border: 1px solid #1e2e46;
+  border-radius: 8px;
+  font-size: 13px;
+  background: #040913;
+  color: #f8fafc;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.filter-select option {
+  background: #081120;
+  color: #f8fafc;
+}
+
+/* Problem Cards */
+.problem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.problem-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid #142238;
+  border-radius: 8px;
+  background: #040913;
+  transition: all 0.15s ease;
+}
+
+.problem-card:hover {
+  border-color: #1e3557;
+  background: #071120;
+}
+
+.problem-card.is-selected {
+  opacity: 0.65;
+}
+
+.problem-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.problem-title-row h3 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.category-tag {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.difficulty-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.difficulty-badge.easy { background: rgba(34, 197, 94, 0.1); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.25); }
+.difficulty-badge.medium { background: rgba(245, 158, 11, 0.1); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); }
+.difficulty-badge.hard { background: rgba(239, 68, 68, 0.1); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); }
+
+.add-problem-button {
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #60a5fa;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-problem-button:hover:not(:disabled) {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.problem-added-button {
+  background: transparent;
+  border: 1px solid #1e2e46;
+  color: #64748b;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: default;
+}
+
+/* Selected List */
+.selected-problem-card {
+  background: #040913;
+  border: 1px solid #1e2e46;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.selected-problem-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.selected-problem-index {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.selected-problem-info h3 {
+  margin: 0 0 2px 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.selected-problem-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.selected-problem-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #142238;
+  padding-top: 10px;
+}
+
+.control-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #94a3b8;
+}
+
+.control-field input {
+  width: 50px;
+  height: 30px;
+  padding: 2px 6px;
+  border: 1px solid #1e2e46;
+  border-radius: 6px;
+  text-align: center;
+  background: #081120;
+  color: #f8fafc;
+  outline: none;
+}
+
+.total-marks-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #040913;
+  border: 1px solid #1e2e46;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-top: 14px;
+}
+
+.total-marks-card strong {
+  color: #38bdf8;
+  font-size: 18px;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.btn-link.edit { color: #60a5fa; }
+.btn-link.save { color: #4ade80; }
+.btn-link.cancel { color: #94a3b8; }
+.btn-link.remove { color: #f87171; }
+
+@media (max-width: 900px) {
+  .assessment-problem-layout {
+    grid-template-columns: 1fr;
+  }
+}

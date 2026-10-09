@@ -1,0 +1,540 @@
+/* =======================================================
+   ADMIN LAYOUT - CODESPRINT DARK MASTER SHELL
+   Unified Admin Theme
+======================================================= */
+
+:root {
+    /* CodeSprint Brand */
+    --cs-blue: #0077f6;
+    --cs-cyan: #00c6ff;
+    --cs-orange: #ff5722;
+    --cs-amber: #ff9800;
+
+    /* Dark Theme Shell */
+    --nav-bg: #0b132b;
+    --nav-border: #1c2541;
+
+    --sidebar-bg: #0b132b;
+    --sidebar-border: #1c2541;
+
+    --content-bg: #030914;
+
+    /* Text */
+    --text-light: #f8fafc;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --text-muted-dark: #68778c;
+}
+
+/* =======================================================
+   ADMIN LAYOUT
+======================================================= */
+
+.admin-layout {
+    min-height: 100vh;
+    width: 100%;
+    background: var(--content-bg);
+    color: var(--text-primary);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Inter,
+        sans-serif;
+}
+
+/* =======================================================
+   NAVBAR
+======================================================= */
+
+.admin-navbar {
+    height: 72px;
+    width: 100%;
+
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* CodeSprint Accent Line */
+
+.admin-navbar::after {
+    content: "";
+
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0077f6 0%,
+            #00c6ff 45%,
+            #ff5722 90%,
+            #ff9800 100%
+        );
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+}
+
+.admin-logo {
+    width: 155px;
+    height: auto;
+    object-fit: contain;
+
+    transition: transform 0.2s ease;
+}
+
+.admin-logo:hover {
+    transform: scale(1.02);
+}
+
+/* =======================================================
+   NAVBAR RIGHT
+======================================================= */
+
+.admin-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* =======================================================
+   SEARCH
+======================================================= */
+
+.admin-search {
+    width: 260px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    background: #151e3f;
+    border: 1px solid #1c2541;
+    border-radius: 12px;
+
+    padding: 0 14px;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.admin-search:focus-within {
+    background: #1a244d;
+    border-color: var(--cs-cyan);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 198, 255, 0.14);
+}
+
+.admin-search span {
+    font-size: 18px;
+    color: var(--cs-cyan);
+    font-weight: 700;
+}
+
+.admin-search input {
+    border: none;
+    outline: none;
+    background: transparent;
+
+    width: 100%;
+    margin-left: 8px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #ffffff;
+}
+
+.admin-search input::placeholder {
+    color: #5d6d88;
+}
+
+/* =======================================================
+   NOTIFICATIONS
+======================================================= */
+
+.notification-btn {
+    position: relative;
+
+    border: 1px solid #1c2541;
+    background: #151e3f;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.notification-btn:hover {
+    background: #1c2541;
+    border-color: #3b82f6;
+    transform: translateY(-1px);
+}
+
+.notification-dot {
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    width: 8px;
+    height: 8px;
+
+    background: var(--cs-orange);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 2px var(--nav-bg),
+        0 0 8px rgba(255, 87, 34, 0.9);
+}
+
+/* =======================================================
+   ADMIN PROFILE
+======================================================= */
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    border: 1px solid #1c2541;
+    background: #151e3f;
+
+    padding: 4px 14px 4px 5px;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.admin-profile:hover {
+    background: #1c2541;
+    border-color: #2e3a59;
+}
+
+.admin-avatar {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cs-blue) 0%,
+            var(--cs-cyan) 100%
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    box-shadow:
+        0 3px 8px rgba(0, 119, 246, 0.35);
+}
+
+.admin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    text-align: left;
+}
+
+.admin-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.admin-role {
+    font-size: 11px;
+    font-weight: 600;
+
+    color: var(--cs-orange);
+
+    letter-spacing: 0.02em;
+}
+
+/* =======================================================
+   LOGOUT
+======================================================= */
+
+.admin-logout {
+    border: 1px solid #3f1d24;
+    background: #201319;
+
+    color: #f87171;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 8px 14px;
+
+    border-radius: 10px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-logout:hover {
+    background: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+
+    box-shadow:
+        0 4px 14px rgba(239, 68, 68, 0.4);
+
+    transform: translateY(-1px);
+}
+
+/* =======================================================
+   BODY
+======================================================= */
+
+.admin-body {
+    display: flex;
+
+    padding-top: 72px;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    background: var(--content-bg);
+}
+
+/* =======================================================
+   SIDEBAR
+======================================================= */
+
+.admin-sidebar {
+    width: 240px;
+
+    background: var(--sidebar-bg);
+
+    min-height: calc(100vh - 72px);
+
+    position: fixed;
+
+    top: 72px;
+    left: 0;
+    bottom: 0;
+
+    padding: 24px 14px;
+
+    box-sizing: border-box;
+
+    border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-item {
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 16px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    color: #8c98a9;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.sidebar-item:hover {
+    background: #1c2541;
+    color: #ffffff;
+
+    transform: translateX(3px);
+}
+
+.sidebar-item.active {
+    background:
+        linear-gradient(
+            135deg,
+            #0077f6 0%,
+            #00c6ff 100%
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 6px 18px rgba(0, 119, 246, 0.35);
+}
+
+.sidebar-icon {
+    width: 22px;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+/* =======================================================
+   CONTENT
+======================================================= */
+
+.admin-content {
+    margin-left: 240px;
+
+    width: calc(100% - 240px);
+
+    min-height: calc(100vh - 72px);
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: var(--content-bg);
+
+    color: var(--text-primary);
+
+    overflow-x: auto;
+}
+
+/*
+ * Keeps nested Admin pages visually connected to the
+ * master shell. Individual page CSS can still provide
+ * their own cards, tables and sections.
+ */
+
+.admin-content > * {
+    box-sizing: border-box;
+}
+
+/* =======================================================
+   RESPONSIVE
+======================================================= */
+
+@media (max-width: 900px) {
+
+    .admin-search {
+        width: 180px;
+    }
+
+    .admin-info {
+        display: none;
+    }
+
+    .admin-sidebar {
+        width: 210px;
+    }
+
+    .admin-content {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .admin-navbar {
+        padding: 0 16px;
+    }
+
+    .admin-logo {
+        width: 120px;
+    }
+
+    .admin-search {
+        display: none;
+    }
+
+    .admin-sidebar {
+        width: 70px;
+        padding: 20px 8px;
+    }
+
+    .sidebar-item {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .sidebar-item span:last-child {
+        display: none;
+    }
+
+    .admin-content {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .admin-logout {
+        display: none;
+    }
+}

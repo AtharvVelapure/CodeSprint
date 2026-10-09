@@ -1,0 +1,500 @@
+/* =========================================================
+   USER PROBLEMS PAGE - CODESPRINT DARK THEME
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.user-problems-page {
+    width: 100% !important;
+    min-height: 100vh !important;
+    padding: 24px 32px 50px !important;
+    box-sizing: border-box !important;
+    background-color: #030914 !important;
+    color: #e2e8f0 !important;
+    font-family: inherit !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+/* =========================================================
+   NAVIGATION / BACK BUTTON
+========================================================= */
+
+.problems-navigation {
+    margin-bottom: 0 !important;
+}
+
+.back-dashboard-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 6px 12px !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 8px !important;
+    background: #0d1626 !important;
+    color: #38bdf8 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.back-dashboard-button:hover {
+    background: #17263c !important;
+    color: #60a5fa !important;
+    border-color: #334155 !important;
+    transform: translateX(-3px) !important;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.problems-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding-bottom: 18px !important;
+    border-bottom: 1px solid #142238 !important;
+    flex-wrap: wrap !important;
+}
+
+.problems-header h1 {
+    margin: 0 0 4px 0 !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    color: #f8fafc !important;
+}
+
+.problems-header p {
+    margin: 0 !important;
+    color: #94a3b8 !important;
+    font-size: 14px !important;
+}
+
+.problem-count {
+    min-width: 90px !important;
+    padding: 8px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #081120 !important;
+    border: 1px solid #142238 !important;
+    border-radius: 10px !important;
+}
+
+.problem-count strong {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
+    line-height: 1 !important;
+}
+
+.problem-count span {
+    font-size: 10.5px !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    margin-top: 4px !important;
+}
+
+/* =========================================================
+   FILTERS BAR
+========================================================= */
+
+.problem-filters {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 14px 18px !important;
+    background: #081120 !important;
+    border: 1px solid #142238 !important;
+    border-radius: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.search-box {
+    position: relative !important;
+    flex: 1 1 240px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.search-icon {
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 14px !important;
+    color: #64748b !important;
+    pointer-events: none !important;
+}
+
+.search-box input {
+    width: 100% !important;
+    height: 40px !important;
+    padding: 0 14px 0 36px !important;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px !important;
+    background: #040913 !important;
+    color: #f8fafc !important;
+    font-size: 13.5px !important;
+    outline: none !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.search-box input:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.search-box input::placeholder {
+    color: #64748b !important;
+}
+
+.problem-filters select {
+    min-width: 160px !important;
+    height: 40px !important;
+    padding: 0 36px 0 12px !important;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px !important;
+    background-color: #040913 !important;
+    color: #f8fafc !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    outline: none !important;
+    cursor: pointer !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.problem-filters select:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.problem-filters select option {
+    background-color: #081120 !important;
+    color: #f8fafc !important;
+    padding: 8px 12px !important;
+}
+
+/* =========================================================
+   PROBLEM LIST & CARDS
+========================================================= */
+
+.problems-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.problem-card {
+    display: flex !important;
+    align-items: center !important;
+    padding: 18px 22px !important;
+    background: #081120 !important;
+    border: 1px solid #142238 !important;
+    border-radius: 12px !important;
+    position: relative !important;
+    transition: all 0.2s ease !important;
+}
+
+.problem-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: #1e3557 !important;
+}
+
+/* Number badge */
+.problem-number {
+    width: 38px !important;
+    height: 38px !important;
+    flex-shrink: 0 !important;
+    margin-right: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #040913 !important;
+    border: 1px solid #1e2e46 !important;
+    border-radius: 8px !important;
+    color: #94a3b8 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+}
+
+.problem-card:hover .problem-number {
+    color: #38bdf8 !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Problem info */
+.problem-info {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+.problem-info h3 {
+    margin: 0 0 4px 0 !important;
+    color: #f8fafc !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.problem-card:hover .problem-info h3 {
+    color: #38bdf8 !important;
+}
+
+.problem-info p {
+    margin: 0 0 10px 0 !important;
+    max-width: 850px !important;
+    color: #94a3b8 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Meta Badges */
+.problem-meta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.category-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    background: #040913 !important;
+    border: 1px solid #1e2e46 !important;
+    color: #cbd5e1 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+}
+
+.difficulty-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    padding: 3px 8px !important;
+    border-radius: 999px !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+}
+
+.difficulty-badge::before {
+    content: '' !important;
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 50% !important;
+}
+
+.difficulty-badge.easy {
+    background: rgba(34, 197, 94, 0.1) !important;
+    color: #4ade80 !important;
+    border: 1px solid rgba(34, 197, 94, 0.25) !important;
+}
+.difficulty-badge.easy::before { background: #4ade80 !important; }
+
+.difficulty-badge.medium {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #fbbf24 !important;
+    border: 1px solid rgba(245, 158, 11, 0.25) !important;
+}
+.difficulty-badge.medium::before { background: #fbbf24 !important; }
+
+.difficulty-badge.hard {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #f87171 !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+}
+.difficulty-badge.hard::before { background: #f87171 !important; }
+
+/* Action button */
+.problem-action {
+    margin-left: 18px !important;
+    flex-shrink: 0 !important;
+}
+
+.problem-action button {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 8px 16px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
+    transition: all 0.15s ease !important;
+}
+
+.problem-action button:hover {
+    background: #1d4ed8 !important;
+    transform: translateY(-1px) !important;
+}
+
+.problem-action button span {
+    font-size: 14px !important;
+    transition: transform 0.15s ease !important;
+}
+
+.problem-action button:hover span {
+    transform: translateX(3px) !important;
+}
+
+/* =========================================================
+   MESSAGES & EMPTY STATES
+========================================================= */
+
+.problems-message {
+    min-height: 280px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 40px 20px !important;
+    background: #081120 !important;
+    border: 1px dashed #1e2e46 !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+}
+
+.problems-message p {
+    margin: 8px 0 0 0 !important;
+    color: #94a3b8 !important;
+    font-size: 13.5px !important;
+}
+
+.problems-message h3 {
+    margin: 10px 0 0 0 !important;
+    color: #f8fafc !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+.empty-icon {
+    font-size: 32px !important;
+    color: #64748b !important;
+}
+
+/* Error State */
+.error-message {
+    border-style: solid !important;
+    border-color: rgba(239, 68, 68, 0.25) !important;
+    background: rgba(239, 68, 68, 0.08) !important;
+}
+
+.error-message p {
+    color: #fca5a5 !important;
+    font-weight: 600 !important;
+}
+
+.error-message button {
+    margin-top: 14px !important;
+    padding: 8px 18px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    width: 32px !important;
+    height: 32px !important;
+    border: 3px solid #142238 !important;
+    border-top-color: #3b82f6 !important;
+    border-radius: 50% !important;
+    animation: problems-spin 0.8s linear infinite !important;
+}
+
+@keyframes problems-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 800px) {
+    .user-problems-page {
+        padding: 16px !important;
+    }
+
+    .problem-filters {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .problem-filters select {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 650px) {
+    .problems-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .problem-count {
+        align-self: flex-start !important;
+    }
+
+    .problem-card {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 16px !important;
+    }
+
+    .problem-number {
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .problem-info p {
+        white-space: normal !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+    }
+
+    .problem-action {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 14px !important;
+    }
+
+    .problem-action button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}

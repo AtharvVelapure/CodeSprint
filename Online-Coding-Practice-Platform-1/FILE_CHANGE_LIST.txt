@@ -1,0 +1,66 @@
+NEW FILES
+1. src/main/java/com/Av/Online/Coding/Practice/Platform/security/JwtService.java
+2. src/main/java/com/Av/Online/Coding/Practice/Platform/security/JwtAuthenticationFilter.java
+3. src/main/java/com/Av/Online/Coding/Practice/Platform/security/UserIdentityFilter.java
+4. src/main/java/com/Av/Online/Coding/Practice/Platform/security/AuthenticatedUserService.java
+5. PRODUCTION_READINESS_CHANGES.md
+6. FILE_CHANGE_LIST.txt
+
+FUNCTIONALLY MODIFIED FILES
+1. src/main/java/com/Av/Online/Coding/Practice/Platform/config/SecurityConfig.java
+   - Stateless JWT security, role authorization, CORS, BCrypt, JSON 401/403.
+2. src/main/java/com/Av/Online/Coding/Practice/Platform/Service/AuthService.java
+   - BCrypt registration/change-password, JWT login, blocked-user check, legacy plaintext upgrade.
+3. src/main/java/com/Av/Online/Coding/Practice/Platform/dto/UserResponse.java
+   - Added JWT token field to login response without removing existing fields.
+4. src/main/java/com/Av/Online/Coding/Practice/Platform/Controller/RunCodeController.java
+   - Uses authenticated user identity instead of trusting body userId.
+5. src/main/java/com/Av/Online/Coding/Practice/Platform/Controller/SubmitCodeController.java
+   - Uses authenticated user identity instead of trusting body userId.
+6. src/main/java/com/Av/Online/Coding/Practice/Platform/Controller/AIChatController.java
+   - Uses authenticated user identity for user AI context.
+7. src/main/java/com/Av/Online/Coding/Practice/Platform/Controller/SupportTicketController.java
+   - Uses authenticated user identity for ticket creation/admin action.
+8. src/main/java/com/Av/Online/Coding/Practice/Platform/Service/AssessmentInvitationService.java
+   - Configurable frontend base URL for invitation links.
+9. src/main/java/com/Av/Online/Coding/Practice/Platform/Service/ContestService.java
+   - Configurable frontend base URL for contest links.
+10. src/main/resources/application.properties
+   - Removed hard-coded DB/mail secrets; added environment-driven DB/mail/AI/JWT/CORS/frontend configuration.
+
+CORS-CENTRALIZATION ONLY
+The following controllers had local @CrossOrigin annotations removed so SecurityConfig is the single CORS policy source:
+- ContestSubmissionController.java
+- ContestLeaderboardController.java
+- AssessmentInvitationController.java
+- AssessmentCandidateController.java
+- AssessmentHostVerificationController.java
+- AssesmentController.java
+- AdminCertificationController.java
+- TestCaseController.java
+- UserManagementController.java
+- ContestController.java
+- AssessmentHostOtpController.java
+- AssessmentAssignmentController.java
+- ContestProblemResultController.java
+- CertificationController.java
+- LeaderboardController.java
+- SubmissionController.java
+- AssessmentHostResultController.java
+- CertificateController.java
+- ProblemEditorialController.java
+- UserProfileController.java
+- AIStatsController.java
+- ProblemController.java
+- AuthController.java
+- AssessmentCandidateCodingController.java
+- AssessmentAssignmentProblemController.java
+- ProblemHintController.java
+- AdminController.java
+- ContestResultController.java
+- AdminCertificationQuestionController.java
+- AssessmentCandidateProblemController.java
+- AdminAIChatController.java
+- AssessmentCandidateFinalController.java
+- AssessmentCandidateSessionController.java
+- AssessmentSecurityController.java

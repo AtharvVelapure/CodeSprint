@@ -1,0 +1,758 @@
+/* =========================================================
+   CODESPRINT USER LAYOUT
+   Same visual language as Admin Dashboard
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+.user-layout {
+    min-height: 100vh;
+    width: 100%;
+
+    background: #f6f8fc;
+
+    color: #0b132b;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Inter",
+        sans-serif;
+}
+
+
+/* =========================================================
+   MAIN AREA
+========================================================= */
+
+.user-layout-main {
+
+    min-height: 100vh;
+
+    margin-left: 240px;
+
+    width: calc(100% - 240px);
+
+    background: #f6f8fc;
+}
+
+
+/* =========================================================
+   USER NAVBAR
+========================================================= */
+
+.user-navbar {
+
+    width: 100%;
+
+    height: 68px;
+
+    padding: 0 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 900;
+
+    background: #0b132b;
+
+    border-bottom: 1px solid #1c2541;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   NAVBAR ACCENT
+========================================================= */
+
+.user-navbar::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: -1px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0077f6 0%,
+            #00c6ff 45%,
+            #ff5722 90%,
+            #ff9800 100%
+        );
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.user-navbar-logo {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.user-navbar-logo:hover {
+    transform: scale(1.02);
+}
+
+.user-navbar-logo img {
+
+    width: 145px;
+
+    height: auto;
+
+    max-height: 46px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.user-navbar-search {
+
+    position: relative;
+
+    width: 320px;
+
+    max-width: 100%;
+}
+
+.user-navbar-search input {
+
+    width: 100%;
+
+    height: 40px;
+
+    padding:
+        0 16px 0 42px;
+
+    border: 1px solid #1c2541;
+
+    border-radius: 10px;
+
+    background: #151e3f;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    outline: none;
+
+    transition:
+        all 0.25s ease;
+}
+
+.user-navbar-search input::placeholder {
+    color: #5d6d88;
+}
+
+.user-navbar-search input:focus {
+
+    border-color: #00c6ff;
+
+    background: #1a244d;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 198, 255, 0.18);
+}
+
+
+.user-navbar-search-icon {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #00c6ff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   NAVBAR ACTIONS
+========================================================= */
+
+.user-navbar-actions {
+
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   LANGUAGE SELECTOR
+========================================================= */
+
+.user-language-selector {
+
+    height: 38px;
+
+    min-width: 105px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 9px;
+
+    border: 1px solid #1c2541;
+
+    border-radius: 10px;
+
+    background: #151e3f;
+
+    transition:
+        all 0.2s ease;
+}
+
+.user-language-selector:hover {
+
+    background: #1c2541;
+
+    border-color: #2e3a59;
+}
+
+.user-language-icon {
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 16px;
+
+    line-height: 1;
+}
+
+.user-language-select {
+
+    width: 100%;
+
+    min-width: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    appearance: auto;
+}
+
+.user-language-select option {
+
+    background: #0b132b;
+
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+========================================================= */
+
+.user-notification-button {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #1c2541;
+
+    border-radius: 10px;
+
+    background: #151e3f;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+.user-notification-button:hover {
+
+    background: #1c2541;
+
+    border-color: #0077f6;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.user-profile-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 4px 12px 4px 5px;
+
+    border: 1px solid #1c2541;
+
+    border-radius: 10px;
+
+    background: #151e3f;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+.user-profile-button:hover {
+
+    background: #1c2541;
+
+    border-color: #2e3a59;
+}
+
+
+.user-profile-circle {
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077f6 0%,
+            #00c6ff 100%
+        );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 2px 8px rgba(0, 119, 246, 0.35);
+}
+
+
+.user-profile-name {
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.user-navbar-logout {
+
+    padding: 8px 15px;
+
+    border: 1px solid #3f1d24;
+
+    border-radius: 9px;
+
+    background: #201319;
+
+    color: #f87171;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+.user-navbar-logout:hover {
+
+    background: #ef4444;
+
+    border-color: #ef4444;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(239, 68, 68, 0.35);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+========================================================= */
+
+.user-layout-content {
+
+    width: 100%;
+
+    min-height:
+        calc(100vh - 68px);
+
+    background: #f6f8fc;
+
+    padding: 0;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .user-navbar {
+
+        padding: 0 24px;
+
+        gap: 16px;
+    }
+
+    .user-navbar-search {
+
+        width: 260px;
+    }
+
+    .user-navbar-actions {
+
+        gap: 9px;
+    }
+
+    .user-language-selector {
+
+        min-width: 95px;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .user-layout-main {
+
+        margin-left: 210px;
+
+        width:
+            calc(100% - 210px);
+    }
+
+    .user-navbar {
+
+        padding: 0 20px;
+
+        gap: 12px;
+    }
+
+    .user-navbar-search {
+
+        width: 220px;
+    }
+
+    .user-navbar-logo img {
+
+        width: 135px;
+    }
+
+    .user-language-selector {
+
+        min-width: 92px;
+
+        padding: 0 7px;
+    }
+
+    .user-language-icon {
+
+        font-size: 15px;
+    }
+
+    .user-language-select {
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL SCREEN
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .user-navbar {
+
+        padding: 0 15px;
+
+        gap: 10px;
+    }
+
+    .user-navbar-search {
+
+        width: 180px;
+    }
+
+    .user-profile-name {
+
+        display: none;
+    }
+
+    .user-language-selector {
+
+        min-width: 82px;
+
+        height: 36px;
+    }
+
+    .user-language-select {
+
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .user-layout-main {
+
+        margin-left: 70px;
+
+        width:
+            calc(100% - 70px);
+    }
+
+    .user-navbar {
+
+        height: 64px;
+
+        padding: 0 12px;
+
+        gap: 7px;
+    }
+
+    .user-navbar-logo img {
+
+        width: 105px;
+
+        max-height: 40px;
+    }
+
+    .user-navbar-search {
+
+        flex: 1;
+
+        width: auto;
+    }
+
+    .user-navbar-search input {
+
+        height: 36px;
+
+        padding-left: 36px;
+    }
+
+    .user-navbar-search-icon {
+
+        left: 11px;
+
+        font-size: 16px;
+    }
+
+    .user-navbar-actions {
+
+        gap: 6px;
+    }
+
+    .user-language-selector {
+
+        min-width: 62px;
+
+        width: 62px;
+
+        height: 34px;
+
+        padding: 0 5px;
+
+        gap: 3px;
+    }
+
+    .user-language-icon {
+
+        font-size: 14px;
+    }
+
+    .user-language-select {
+
+        font-size: 10px;
+    }
+
+    .user-notification-button {
+
+        width: 34px;
+        height: 34px;
+    }
+
+    .user-profile-button {
+
+        padding: 2px;
+
+        border: none;
+
+        background: transparent;
+    }
+
+    .user-profile-circle {
+
+        width: 30px;
+        height: 30px;
+    }
+
+    .user-navbar-logout {
+
+        padding: 6px 9px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .user-navbar-logo img {
+
+        width: 90px;
+    }
+
+    .user-navbar-search {
+
+        display: none;
+    }
+
+    .user-navbar-actions {
+
+        margin-left: auto;
+    }
+
+    .user-language-selector {
+
+        width: 58px;
+
+        min-width: 58px;
+    }
+
+    .user-language-icon {
+
+        display: none;
+    }
+
+    .user-navbar-logout {
+
+        display: none;
+    }
+}
